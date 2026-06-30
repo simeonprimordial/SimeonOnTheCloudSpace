@@ -1,10 +1,13 @@
 import ArchitectureDiagram from './ArchitectureDiagram'
+import Profile from './Profile'
 
 export default function Hero() {
   return (
     <section id="top" className="pt-24 pb-20 px-6">
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <div>
+          <Profile />
+
           <div className="inline-flex items-center gap-2 font-mono text-xs text-green border border-line bg-surface px-3 py-1.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-green" />
             Available for cloud / DevOps roles

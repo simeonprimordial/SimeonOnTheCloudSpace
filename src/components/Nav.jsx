@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 export default function Nav() {
+  const [imgSrc, setImgSrc] = useState('/images/profile.jpg')
+
   const links = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
@@ -9,8 +13,14 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-line">
       <nav className="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#top" className="font-display font-bold text-lg flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green led-pulse shadow-[0_0_8px_var(--color-green)]" />
+        <a href="#top" className="font-display font-bold text-lg flex items-center gap-2.5">
+          <img
+            src={imgSrc}
+            onError={() => setImgSrc('/images/avatar-placeholder.svg')}
+            alt=""
+            aria-hidden="true"
+            className="w-7 h-7 rounded-full object-cover border border-line"
+          />
           Simeon Siaka
         </a>
         <div className="hidden sm:flex gap-8 text-sm text-text-dim">
