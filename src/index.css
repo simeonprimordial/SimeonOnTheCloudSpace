@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0B1220;
+  --color-surface: #131B2E;
+  --color-surface-2: #1B2740;
+  --color-line: #26324A;
+  --color-text: #E7ECF6;
+  --color-text-dim: #94A1BE;
+  --color-amber: #F2A93B;
+  --color-green: #34D399;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes nodeIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes edgeFlow { to { stroke-dashoffset: -160; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ledPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.led-pulse { animation: ledPulse 2.4s ease-in-out infinite; }
+.node-anim { opacity: 0; animation: nodeIn 0.5s ease forwards; }
+.edge-anim { opacity: 0; animation: fadeIn 0.4s ease forwards; }
+.edge-flow { animation: edgeFlow 3s linear infinite; }
