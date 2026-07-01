@@ -1,4 +1,4 @@
-import ArchitectureDiagram from './ArchitectureDiagram'
+import HeroIllustration from './HeroIllustration'
 import Profile from './Profile'
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <ArchitectureDiagram />
+        <HeroIllustration />
       </div>
     </section>
   )

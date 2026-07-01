@@ -1,9 +1,4 @@
-const stats = [
-  { num: 'AWS', label: 'Primary cloud platform' },
-  { num: 'IaC', label: 'Terraform-driven infra' },
-  { num: 'CI/CD', label: 'GitHub Actions pipelines' },
-  { num: 'SEC', label: 'Security-first design' },
-]
+import ArchitectureDiagram from './ArchitectureDiagram'
 
 export default function About() {
   return (
@@ -29,14 +24,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 content-start">
-          {stats.map((s) => (
-            <div key={s.num} className="border border-line bg-surface rounded-[10px] p-4">
-              <div className="font-display font-bold text-2xl text-amber">{s.num}</div>
-              <div className="text-xs text-text-dim mt-1">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        <ArchitectureDiagram />
       </div>
     </section>
   )
