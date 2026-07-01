@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { end: 2, suffix: '+', label: 'Years hands-on with AWS' },
+  { end: 3, suffix: '+', label: 'Years hands-on with AWS' },
   { end: 4, suffix: '', label: 'Infrastructure projects shipped' },
   { end: 1, suffix: '', label: 'AWS certification in progress' },
   { end: 100, suffix: '%', label: 'Terraform-managed deployments' },
