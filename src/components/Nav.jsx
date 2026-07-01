@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+
 export default function Nav() {
-  const [imgSrc, setImgSrc] = useState('/images/profile.jpg')
+  const [imgSrc, setImgSrc] = useState(`${BASE}images/profile.jpg`)
 
   const links = [
     { href: '#about', label: 'About' },
@@ -16,7 +18,7 @@ export default function Nav() {
         <a href="#top" className="font-display font-bold text-lg flex items-center gap-2.5">
           <img
             src={imgSrc}
-            onError={() => setImgSrc('/images/avatar-placeholder.svg')}
+            onError={() => setImgSrc(`${BASE}images/avatar-placeholder.svg`)}
             alt=""
             aria-hidden="true"
             className="w-7 h-7 rounded-full object-cover border border-line"
