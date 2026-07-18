@@ -1,0 +1,78 @@
+%PDF-1.4
+%ASCII
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 4102 >>
+stream
+BT /F2 21 Tf 1 0 0 1 54 792 Tm (SIMEON SIAKA) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 771 Tm (CLOUD INFRASTRUCTURE & DEVOPS ENGINEER) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 752 Tm (Lagos, Nigeria | simeonvault@gmail.com) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 738 Tm (linkedin.com/in/simeon-siaka-8a8367312 | github.com/simeonprimordial) Tj ET
+BT /F2 12 Tf 1 0 0 1 54 706 Tm (PROFESSIONAL SUMMARY) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 687 Tm (Cloud infrastructure engineer focused on AWS, Terraform, Linux, secure CI/CD, and highly) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 673 Tm (available systems. Physics graduate with hands-on experience designing, deploying, securing,) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 659 Tm (troubleshooting, and documenting production-oriented cloud architectures.) Tj ET
+BT /F2 12 Tf 1 0 0 1 54 627 Tm (CORE SKILLS) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 608 Tm (Cloud Architecture:) Tj ET
+BT /F1 9 Tf 1 0 0 1 145 608 Tm (AWS, VPC, IAM, EC2, ALB, Auto Scaling, Lambda, S3, RDS, DynamoDB) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 592 Tm (Infrastructure as Code:) Tj ET
+BT /F1 9 Tf 1 0 0 1 165 592 Tm (Terraform, variables, outputs, validation, state awareness) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 576 Tm (Delivery & Operations:) Tj ET
+BT /F1 9 Tf 1 0 0 1 165 576 Tm (GitHub Actions, OIDC, Docker, ECR, Linux, Bash, CloudWatch) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 560 Tm (Security & Documentation:) Tj ET
+BT /F1 9 Tf 1 0 0 1 181 560 Tm (Least-privilege IAM, private networking, secrets, diagrams, runbooks) Tj ET
+BT /F2 12 Tf 1 0 0 1 54 528 Tm (SELECTED CLOUD ENGINEERING PROJECTS) Tj ET
+BT /F2 10 Tf 1 0 0 1 54 507 Tm (LogiHaul Reference Architecture | AWS Architecture Capstone) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 491 Tm (- Designed a six-layer logistics architecture for a 50x traffic-spike scenario.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 477 Tm (- Separated elastic order intake from relational billing and driver-record workloads.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 463 Tm (- Designed Multi-AZ networking, asynchronous processing, observability, and two-region S3 replication.) Tj ET
+BT /F1 8 Tf 1 0 0 1 66 449 Tm (Repository: github.com/simeonprimordial/logihaul-reference-architecture) Tj ET
+BT /F2 10 Tf 1 0 0 1 54 420 Tm (FinTrust Customer Portal | Terraform, Docker, AWS) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 404 Tm (- Built a repeatable three-tier deployment with a public ALB and private application/database paths.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 390 Tm (- Containerized the Flask workload, published to ECR, and deployed through Auto Scaling.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 376 Tm (- Removed hardcoded runtime secrets and added Terraform, Bash, and Python CI checks.) Tj ET
+BT /F1 8 Tf 1 0 0 1 66 362 Tm (Repository: github.com/simeonprimordial/fintrust-customer-portal) Tj ET
+BT /F2 10 Tf 1 0 0 1 54 333 Tm (NovaTech Serverless Website | Secure CI/CD) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 317 Tm (- Delivered a static site globally through CloudFront with a private S3 origin and OAC.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 303 Tm (- Replaced long-lived AWS deployment keys with GitHub Actions OIDC and temporary credentials.) Tj ET
+BT /F1 9 Tf 1 0 0 1 66 289 Tm (- Automated validation, S3 synchronization, and CloudFront cache invalidation.) Tj ET
+BT /F1 8 Tf 1 0 0 1 66 275 Tm (Repository: github.com/simeonprimordial/novatech-serverless-website) Tj ET
+BT /F2 12 Tf 1 0 0 1 54 241 Tm (ADDITIONAL PROJECTS) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 222 Tm (CloudDesk Multi-Tenant SaaS | Highly Available Web App | FinTrust NLB Docker Service) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 208 Tm (Lagos Law Firm S3 DMS | AWS 80 Projects Challenge) Tj ET
+BT /F2 12 Tf 1 0 0 1 54 176 Tm (EDUCATION & DEVELOPMENT) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 157 Tm (Bachelor of Science in Physics) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 141 Tm (Quantitative foundation in analysis, technical reasoning, and structured problem solving.) Tj ET
+BT /F2 9 Tf 1 0 0 1 54 118 Tm (Preparing for AWS Certified Solutions Architect - Associate) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 102 Tm (Current focus: resilient, secure, performant, and cost-aware AWS architecture.) Tj ET
+BT /F1 8 Tf 1 0 0 1 54 72 Tm (Portfolio: simeonprimordial.github.io/SimeonOnTheCloudSpace/) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+6 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000016 00000 n 
+0000000086 00000 n 
+0000000161 00000 n 
+0000004314 00000 n 
+0000004450 00000 n 
+0000004507 00000 n 
+trailer
+<< /Size 7 /Root 6 0 R >>
+startxref
+4556
+%%EOF
