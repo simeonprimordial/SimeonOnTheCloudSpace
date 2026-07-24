@@ -1,9 +1,7 @@
 import {
   About,
   Contact,
-  EngineeringJourney,
   Hero,
-  LearningEducation,
   ProjectArchive,
   ProjectHighlights,
 } from './components/HomeSections'
@@ -13,17 +11,15 @@ import CaseStudyPage from './pages/CaseStudyPage'
 
 function HomePage() {
   return (
-    <div className="site-shell">
+    <div className="site-shell portfolio-home">
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
       <SiteHeader />
       <main id="main-content">
         <Hero />
-        <About />
         <ProjectHighlights />
-        <EngineeringJourney />
-        <LearningEducation />
+        <About />
         <ProjectArchive />
         <Contact />
       </main>

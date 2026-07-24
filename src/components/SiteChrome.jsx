@@ -1,6 +1,12 @@
 import { useState } from 'react'
-import { navigation } from '../data/portfolio'
 import { MenuIcon } from './Common'
+
+const navigation = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#about', label: 'About' },
+  { href: '#more-work', label: 'More work' },
+  { href: '#contact', label: 'Contact' },
+]
 
 export function SiteHeader({ caseStudy = false }) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -11,10 +17,10 @@ export function SiteHeader({ caseStudy = false }) {
     <header className="site-header">
       <nav className="nav container" aria-label="Primary navigation">
         <a className="brand" href={homeHref} onClick={closeMenu}>
-          <span className="brand__monogram">SS</span>
+          <span className="brand__monogram">S</span>
           <span className="brand__copy">
             <strong>Simeon Siaka</strong>
-            <small>Cloud Infrastructure Engineer</small>
+            <small>Cloud Infrastructure &amp; DevOps</small>
           </span>
         </a>
 
@@ -29,7 +35,7 @@ export function SiteHeader({ caseStudy = false }) {
         )}
 
         {caseStudy && (
-          <a className="nav__back" href="./#highlights">
+          <a className="nav__back" href="./#projects">
             Back to portfolio
           </a>
         )}
@@ -84,7 +90,7 @@ export function SiteFooter() {
       <div className="container site-footer__inner">
         <div>
           <strong>Simeon Siaka</strong>
-          <span>Cloud Infrastructure & DevOps Engineering</span>
+          <span>Cloud Infrastructure &amp; DevOps Engineering</span>
         </div>
         <p>© {currentYear} Simeon on the Cloud</p>
         <a href="#top">Back to top ↑</a>
