@@ -1,14 +1,11 @@
-import { useMemo, useState } from 'react'
 import {
   archiveProjects,
   caseStudies,
-  journey,
-  learning,
   professionalSummary,
   skillGroups,
 } from '../data/portfolio'
 import { ArchitectureDiagram } from './ArchitectureDiagram'
-import { ArrowIcon, MetricGrid, SectionHeading, TechnologyList } from './Common'
+import { ArrowIcon, TechnologyList } from './Common'
 
 function caseStudyHref(slug) {
   return `?case=${encodeURIComponent(slug)}`
@@ -16,61 +13,148 @@ function caseStudyHref(slug) {
 
 export function Hero() {
   return (
-    <section className="hero" id="top">
-      <div className="hero__orb hero__orb--one" aria-hidden="true" />
-      <div className="hero__orb hero__orb--two" aria-hidden="true" />
-      <div className="container hero__grid">
-        <div className="hero__copy">
-          <p className="eyebrow">Simeon on the Cloud · Nigeria</p>
-          <h1>
-            Building cloud infrastructure with
-            <span> clarity, security, and evidence.</span>
-          </h1>
-          <p className="hero__intro">
-            I design and document AWS systems, automate infrastructure with Terraform, and build
-            delivery paths that reduce manual configuration and credential risk.
+    <section className="clean-hero" id="top">
+      <div className="clean-hero__media" aria-hidden="true">
+        <img
+          className="clean-hero__image"
+          src="https://avatars.githubusercontent.com/u/263141357?v=4"
+          alt=""
+        />
+        <div className="clean-hero__veil" />
+      </div>
+
+      <div className="container clean-hero__inner">
+        <div className="clean-hero__copy">
+          <p className="clean-kicker clean-kicker--light">Simeon on the Cloud · Nigeria</p>
+          <h1 className="clean-hero__name">Simeon Siaka</h1>
+          <p className="clean-hero__role">Cloud Infrastructure &amp; DevOps Engineer</p>
+          <p className="clean-hero__support">
+            I build secure, repeatable AWS infrastructure and delivery systems—with clear
+            architecture, practical automation, and documentation another engineer can follow.
           </p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="#highlights">
-              View project highlights <ArrowIcon />
+
+          <div className="clean-hero__actions">
+            <a className="clean-button clean-button--primary" href="#projects">
+              View projects <ArrowIcon />
             </a>
             <a
-              className="button button--secondary"
+              className="clean-button clean-button--ghost"
               href={`${import.meta.env.BASE_URL}Simeon-Siaka-Cloud-Infrastructure-CV.pdf`}
               download
             >
               Download CV
             </a>
+          </div>
+
+          <div className="clean-hero__links" aria-label="Professional profiles">
+            <a href="https://github.com/simeonprimordial" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
             <a
-              className="button button--text"
-              href="https://github.com/simeonprimordial"
+              href="https://www.linkedin.com/in/simeon-siaka-8a8367312/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub profile <ArrowIcon />
+              LinkedIn
             </a>
+            <a href="mailto:simeonvault@gmail.com">Email</a>
           </div>
-          <div className="hero__status">
-            <span className="status-dot" aria-hidden="true" />
-            Open to cloud infrastructure and DevOps opportunities
+
+          <p className="clean-hero__availability">
+            <span aria-hidden="true" />
+            Open to junior cloud, DevOps, and cloud support opportunities
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProjectHighlights() {
+  const [featuredProject, ...selectedProjects] = caseStudies
+
+  return (
+    <section className="clean-section clean-section--soft" id="projects">
+      <div className="container">
+        <div className="clean-section__heading">
+          <div>
+            <p className="clean-kicker">Featured work</p>
+            <h2 className="clean-title">Cloud systems presented as engineering case studies.</h2>
           </div>
+          <p className="clean-lead">
+            A focused selection showing architecture decisions, security controls, automation,
+            failure thinking, and the evidence used to verify each build.
+          </p>
         </div>
 
-        <div className="portrait-card">
-          <div className="portrait-card__frame">
-            <img
-              src="https://avatars.githubusercontent.com/u/263141357?v=4"
-              alt="Simeon Siaka"
-            />
-            <div className="portrait-card__label">
-              <span>Current focus</span>
-              <strong>AWS · Terraform · CI/CD</strong>
+        <article className="featured-project">
+          <div className="featured-project__visual">
+            <ArchitectureDiagram variant={featuredProject.architecture} compact />
+          </div>
+
+          <div className="featured-project__content">
+            <div className="clean-meta">
+              <span>{featuredProject.type}</span>
+              <span>{featuredProject.period}</span>
+            </div>
+            <h3>{featuredProject.name}</h3>
+            <p>{featuredProject.summary}</p>
+
+            <dl className="featured-project__details">
+              <div>
+                <dt>Challenge</dt>
+                <dd>{featuredProject.problem}</dd>
+              </div>
+              <div>
+                <dt>My contribution</dt>
+                <dd>{featuredProject.contribution}</dd>
+              </div>
+            </dl>
+
+            <TechnologyList items={featuredProject.technologies.slice(0, 7)} />
+
+            <div className="clean-actions">
+              <a className="clean-text-link" href={caseStudyHref(featuredProject.slug)}>
+                Read case study <ArrowIcon />
+              </a>
+              <a
+                className="clean-text-link clean-text-link--muted"
+                href={featuredProject.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View repository <ArrowIcon />
+              </a>
             </div>
           </div>
-          <div className="portrait-card__note">
-            <span>01</span>
-            <p>From architecture diagrams to reproducible, reviewable infrastructure.</p>
-          </div>
+        </article>
+
+        <div className="selected-projects">
+          {selectedProjects.map((project) => (
+            <article className="selected-project" key={project.slug}>
+              <div className="clean-meta">
+                <span>{project.type}</span>
+                <span>{project.period}</span>
+              </div>
+              <h3>{project.name}</h3>
+              <p>{project.summary}</p>
+              <TechnologyList items={project.technologies.slice(0, 5)} />
+              <div className="selected-project__footer">
+                <a className="clean-text-link" href={caseStudyHref(project.slug)}>
+                  Read case study <ArrowIcon />
+                </a>
+                <a
+                  aria-label={`Open ${project.name} repository`}
+                  className="selected-project__repo"
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -79,184 +163,30 @@ export function Hero() {
 
 export function About() {
   return (
-    <section className="section about-section" id="about">
-      <div className="container about-layout">
-        <SectionHeading
-          index="About"
-          title="I treat every portfolio project as an engineering record."
-          description="The goal is not only to make a system work, but to show why it was designed that way, how it is deployed, and what happens when something fails."
-        />
-
-        <div className="professional-summary">
-          <span>Professional summary</span>
-          <p>{professionalSummary}</p>
+    <section className="clean-section" id="about">
+      <div className="container clean-about">
+        <div className="clean-about__intro">
+          <p className="clean-kicker">About</p>
+          <h2 className="clean-title">I am building depth, not just collecting tools.</h2>
         </div>
 
-        <div className="about-copy">
+        <div className="clean-about__copy">
+          <p className="clean-about__summary">{professionalSummary}</p>
           <p>
-            My work focuses on secure AWS architecture, repeatable infrastructure, automated
-            delivery, and documentation that another engineer can actually use. I am building
-            depth across networking, identity, compute, storage, databases, containers, and
-            observability.
-          </p>
-          <p>
-            A physics background shapes how I approach cloud systems: define the constraints,
-            model the behavior, test assumptions, and make the trade-offs visible.
+            My physics background shapes how I work: define the constraints, understand the
+            system, test assumptions, and make trade-offs visible. Every project is documented so
+            the result can be reviewed, reproduced, and improved.
           </p>
         </div>
 
-        <div className="background-grid">
-          <article>
-            <span>Background</span>
-            <h3>Physics graduate</h3>
-            <p>
-              Quantitative reasoning and structured problem solving applied to infrastructure
-              engineering.
-            </p>
-          </article>
-          <article>
-            <span>Direction</span>
-            <h3>Cloud Infrastructure → DevOps Engineering</h3>
-            <p>
-              A focused progression from AWS foundations into reliable delivery and operational
-              systems.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function ProjectHighlights() {
-  return (
-    <section className="section highlights-section" id="highlights">
-      <div className="container">
-        <SectionHeading
-          index="Project highlights"
-          title="Selected systems, explained through the decisions behind them."
-          description="Each highlight combines measurable scope, architecture choices, implementation evidence, and a dedicated case-study page."
-        />
-
-        <div className="highlight-list">
-          {caseStudies.map((project) => (
-            <article className="highlight-card" key={project.slug}>
-              <div className="highlight-card__number">{project.number}</div>
-              <div className="highlight-card__content">
-                <div className="highlight-card__meta">
-                  <span>{project.type}</span>
-                  <span>{project.period}</span>
-                </div>
-                <h3>{project.name}</h3>
-                <p className="highlight-card__summary">{project.summary}</p>
-                <ArchitectureDiagram variant={project.architecture} compact />
-                <MetricGrid metrics={project.metrics} compact />
-                <div className="highlight-card__contribution">
-                  <strong>What I implemented</strong>
-                  <p>{project.contribution}</p>
-                </div>
-                <TechnologyList items={project.technologies.slice(0, 7)} />
-                <div className="highlight-card__actions">
-                  <a className="text-link text-link--light" href={caseStudyHref(project.slug)}>
-                    Read case study <ArrowIcon />
-                  </a>
-                  <a
-                    className="text-link text-link--muted"
-                    href={project.repositoryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open repository <ArrowIcon />
-                  </a>
-                </div>
-              </div>
+        <div className="capability-grid">
+          {skillGroups.map((group, index) => (
+            <article className="capability-card" key={group.title}>
+              <span>0{index + 1}</span>
+              <h3>{group.title}</h3>
+              <TechnologyList items={group.skills} />
             </article>
           ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function EngineeringJourney() {
-  return (
-    <section className="section journey-section" id="journey">
-      <div className="container journey-layout">
-        <div className="journey-intro">
-          <SectionHeading
-            index="Engineering journey"
-            title="A focused path from cloud foundations into DevOps Engineering."
-            description="This timeline shows increasing technical scope without repeating the featured project descriptions or presenting portfolio work as employment history."
-          />
-          <div className="skill-groups">
-            {skillGroups.map((group) => (
-              <div className="skill-group" key={group.title}>
-                <h3>{group.title}</h3>
-                <TechnologyList items={group.skills} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="timeline">
-          {journey.map((item) => (
-            <article className="timeline-item" key={item.title}>
-              <div className="timeline-item__marker" aria-hidden="true" />
-              <div className="timeline-item__period">{item.period}</div>
-              <div className="timeline-item__body">
-                <span>{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <TechnologyList items={item.technologies} />
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function LearningEducation() {
-  return (
-    <section className="section learning-section" id="learning">
-      <div className="container">
-        <SectionHeading
-          index="Learning & education"
-          title="Formal education, current preparation, and structured practice."
-          description="Completed education remains separate from certification preparation and ongoing project learning."
-        />
-        <div className="learning-grid">
-          {learning.map((item) => {
-            const content = (
-              <>
-                <span>{item.kicker}</span>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-                {item.url && (
-                  <div className="learning-card__link">
-                    Open project index <ArrowIcon />
-                  </div>
-                )}
-              </>
-            )
-
-            return item.url ? (
-              <a
-                className="learning-card"
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={item.title}
-              >
-                {content}
-              </a>
-            ) : (
-              <article className="learning-card" key={item.title}>
-                {content}
-              </article>
-            )
-          })}
         </div>
       </div>
     </section>
@@ -264,77 +194,49 @@ export function LearningEducation() {
 }
 
 export function ProjectArchive() {
-  const [query, setQuery] = useState('')
-  const filteredProjects = useMemo(() => {
-    const normalized = query.trim().toLowerCase()
-    if (!normalized) return archiveProjects
-
-    return archiveProjects.filter((project) =>
-      [project.type, project.name, project.period, project.description, ...project.technologies]
-        .join(' ')
-        .toLowerCase()
-        .includes(normalized),
-    )
-  }, [query])
+  const additionalProjects = archiveProjects.filter((project) => !project.caseStudySlug)
 
   return (
-    <section className="section archive-section" id="archive">
+    <section className="clean-section clean-section--compact clean-section--bordered" id="more-work">
       <div className="container">
-        <SectionHeading
-          index="Project archive"
-          title="Search the portfolio by service, skill, or system type."
-          description="The archive stays concise because the three featured systems now have full case studies above."
-        />
-
-        <div className="archive-search">
-          <label htmlFor="project-search">Search by keyword</label>
-          <div className="archive-search__control">
-            <span aria-hidden="true">⌕</span>
-            <input
-              id="project-search"
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Try Terraform, IAM, Docker, serverless…"
-            />
-            <strong>{filteredProjects.length} projects</strong>
+        <div className="clean-section__heading clean-section__heading--compact">
+          <div>
+            <p className="clean-kicker">More work</p>
+            <h2 className="clean-title clean-title--small">Additional hands-on cloud projects.</h2>
           </div>
+          <a
+            className="clean-text-link"
+            href="https://github.com/simeonprimordial?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See all repositories <ArrowIcon />
+          </a>
         </div>
 
-        <div className="archive-grid" aria-live="polite">
-          {filteredProjects.map((project) => {
-            const href = project.caseStudySlug ? caseStudyHref(project.caseStudySlug) : project.url
-            const external = Boolean(project.url)
-
-            return (
-              <a
-                className="archive-card"
-                href={href}
-                target={external ? '_blank' : undefined}
-                rel={external ? 'noopener noreferrer' : undefined}
-                key={project.name}
-              >
-                <div className="archive-card__meta">
-                  <span>{project.type}</span>
-                  <span>{project.period}</span>
-                </div>
+        <div className="project-index">
+          {additionalProjects.map((project, index) => (
+            <a
+              className="project-index__row"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={project.name}
+            >
+              <div className="project-index__number">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <div>
+                <span>{project.type}</span>
                 <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <TechnologyList items={project.technologies} />
-                <div className="archive-card__link">
-                  {project.caseStudySlug ? 'Read case study' : 'View repository'} <ArrowIcon />
-                </div>
-              </a>
-            )
-          })}
+              </div>
+              <p>{project.description}</p>
+              <div className="project-index__arrow" aria-hidden="true">
+                ↗
+              </div>
+            </a>
+          ))}
         </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="empty-state">
-            <h3>No matching projects yet.</h3>
-            <p>Try a broader keyword such as AWS, Terraform, security, Docker, or networking.</p>
-          </div>
-        )}
       </div>
     </section>
   )
@@ -342,26 +244,28 @@ export function ProjectArchive() {
 
 export function Contact() {
   return (
-    <section className="section contact-section" id="contact">
-      <div className="container contact-panel">
-        <p className="eyebrow">Let&apos;s build reliable systems</p>
-        <h2>Looking for a cloud engineer who documents the reasoning, not only the result?</h2>
+    <section className="clean-contact" id="contact">
+      <div className="container clean-contact__inner">
+        <p className="clean-kicker clean-kicker--light">Let&apos;s connect</p>
+        <h2>Looking for someone who can grow into reliable cloud operations?</h2>
         <p>
-          I am open to cloud infrastructure and DevOps opportunities where I can contribute to
-          secure, repeatable systems while continuing to grow.
+          I am open to junior cloud infrastructure, DevOps, and cloud support roles where I can
+          contribute, learn from experienced engineers, and keep building production-minded
+          systems.
         </p>
-        <div className="contact-panel__actions">
-          <a className="button button--light" href="mailto:simeonvault@gmail.com">
+        <div className="clean-contact__actions">
+          <a className="clean-button clean-button--light" href="mailto:simeonvault@gmail.com">
             Email Simeon <ArrowIcon />
           </a>
-          <a href="https://www.linkedin.com/in/simeon-siaka-8a8367312/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/simeon-siaka-8a8367312/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
           <a href="https://github.com/simeonprimordial" target="_blank" rel="noopener noreferrer">
             GitHub
-          </a>
-          <a href={`${import.meta.env.BASE_URL}Simeon-Siaka-Cloud-Infrastructure-CV.pdf`} download>
-            Download CV
           </a>
         </div>
       </div>
