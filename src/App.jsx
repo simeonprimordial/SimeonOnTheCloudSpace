@@ -4,6 +4,7 @@ import {
   Hero,
   ProjectArchive,
   ProjectHighlights,
+  ScrollProgress,
 } from './components/HomeSections'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { caseStudies } from './data/portfolio'
@@ -15,6 +16,7 @@ function HomePage() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
+      <ScrollProgress />
       <SiteHeader />
       <main id="main-content">
         <Hero />
