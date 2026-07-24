@@ -1,0 +1,323 @@
+.architecture-diagram--detailed {
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+  border-color: rgba(20, 33, 61, 0.14);
+  background: #ffffff;
+}
+
+.architecture-diagram--detailed .architecture-diagram__toolbar {
+  background: rgba(248, 250, 252, 0.96);
+}
+
+.architecture-diagram__toolbar-status {
+  margin-left: auto;
+  padding: 5px 9px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 999px;
+  background: rgba(204, 251, 241, 0.56);
+  color: #0f766e;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.architecture-diagram__canvas {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(15, 118, 110, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.035) 1px, transparent 1px),
+    #f8fbfa;
+  background-size: 28px 28px;
+}
+
+.architecture-diagram--detailed svg {
+  width: 100%;
+  min-height: 0;
+  display: block;
+  padding: 16px;
+}
+
+.architecture-diagram__mobile {
+  display: none;
+}
+
+.architecture-zone rect {
+  fill: rgba(255, 255, 255, 0.78);
+  stroke: rgba(15, 118, 110, 0.24);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.architecture-zone--secondary rect {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(20, 33, 61, 0.14);
+}
+
+.architecture-zone--operations rect {
+  fill: rgba(236, 253, 245, 0.84);
+  stroke: rgba(15, 118, 110, 0.2);
+}
+
+.architecture-zone--recovery rect {
+  fill: rgba(255, 247, 237, 0.9);
+  stroke: rgba(234, 88, 12, 0.22);
+}
+
+.architecture-zone__title {
+  fill: #0f766e;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.architecture-zone__subtitle {
+  fill: #7b8794;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.architecture-service__body {
+  fill: #ffffff;
+  stroke: #d5dfdf;
+  stroke-width: 1.3;
+  vector-effect: non-scaling-stroke;
+  transition: fill 220ms ease, stroke 220ms ease, filter 220ms ease;
+}
+
+.architecture-service__badge {
+  fill: #e6f4f1;
+  stroke: rgba(15, 118, 110, 0.16);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition: fill 220ms ease;
+}
+
+.architecture-service__badge-text {
+  fill: #0f766e;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.architecture-service__title {
+  fill: #14213d;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.architecture-service__subtitle {
+  fill: #718096;
+  font-family: var(--font-sans);
+  font-size: 8.6px;
+  font-weight: 600;
+}
+
+.architecture-service--route .architecture-service__badge,
+.architecture-service--event .architecture-service__badge {
+  fill: #fff1e8;
+  stroke-color: rgba(234, 88, 12, 0.18);
+}
+
+.architecture-service--route .architecture-service__badge-text,
+.architecture-service--event .architecture-service__badge-text {
+  fill: #c2410c;
+}
+
+.architecture-service--data .architecture-service__badge {
+  fill: #eaf2ff;
+  stroke: rgba(37, 99, 235, 0.18);
+}
+
+.architecture-service--data .architecture-service__badge-text {
+  fill: #1d4ed8;
+}
+
+.architecture-service--cache .architecture-service__badge {
+  fill: #f2ecff;
+  stroke: rgba(124, 58, 237, 0.16);
+}
+
+.architecture-service--cache .architecture-service__badge-text {
+  fill: #6d28d9;
+}
+
+.architecture-service--storage .architecture-service__badge,
+.architecture-service--recovery .architecture-service__badge {
+  fill: #fff4e6;
+  stroke: rgba(217, 119, 6, 0.18);
+}
+
+.architecture-service--storage .architecture-service__badge-text,
+.architecture-service--recovery .architecture-service__badge-text {
+  fill: #b45309;
+}
+
+.architecture-service--signal .architecture-service__badge {
+  fill: #e8f4fb;
+  stroke: rgba(2, 132, 199, 0.16);
+}
+
+.architecture-service--signal .architecture-service__badge-text {
+  fill: #0369a1;
+}
+
+.architecture-service--serverless .architecture-service__badge {
+  fill: #e6f4f1;
+  stroke: rgba(15, 118, 110, 0.2);
+}
+
+.architecture-service--emphasized .architecture-service__body {
+  fill: #f0fdfa;
+  stroke: #0f766e;
+  stroke-width: 1.8;
+}
+
+.architecture-service:hover .architecture-service__body {
+  fill: #ffffff;
+  stroke: rgba(15, 118, 110, 0.72);
+  filter: drop-shadow(0 8px 12px rgba(20, 33, 61, 0.12));
+}
+
+.architecture-flow {
+  fill: none;
+  stroke: #8295a5;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.architecture-flow--muted {
+  stroke: #a7b4bf;
+  stroke-dasharray: 6 7;
+}
+
+.architecture-flow--highlight {
+  stroke: #ea580c;
+  stroke-width: 2.5;
+  stroke-dasharray: 9 7;
+  animation: architecture-flow 6s linear infinite;
+}
+
+.architecture-diagram--detailed marker path {
+  fill: #8295a5;
+}
+
+.architecture-diagram--detailed marker .architecture-marker--highlight {
+  fill: #ea580c;
+}
+
+.architecture-flow-label {
+  fill: #64748b;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.architecture-flow-label--highlight {
+  fill: #c2410c;
+}
+
+.architecture-legend rect {
+  fill: rgba(15, 118, 110, 0.08);
+  stroke: rgba(15, 118, 110, 0.18);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.architecture-legend circle {
+  fill: #0f766e;
+}
+
+.architecture-legend text {
+  fill: #536274;
+  font-family: var(--font-sans);
+  font-size: 8.8px;
+  font-weight: 700;
+}
+
+.architecture-diagram--detailed figcaption {
+  padding: 16px 18px;
+  background: #ffffff;
+  color: #667085;
+  font-size: 0.73rem;
+  line-height: 1.65;
+}
+
+@keyframes architecture-flow {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+
+@media (max-width: 680px) {
+  .architecture-diagram__desktop {
+    display: none;
+  }
+
+  .architecture-diagram__mobile {
+    display: block;
+  }
+
+  .architecture-diagram--detailed svg {
+    padding: 8px 4px;
+  }
+
+  .architecture-zone__title {
+    font-size: 12px;
+  }
+
+  .architecture-zone__subtitle {
+    font-size: 10px;
+  }
+
+  .architecture-service__title {
+    font-size: 12px;
+  }
+
+  .architecture-service__subtitle {
+    font-size: 9px;
+  }
+
+  .architecture-flow-label {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .architecture-diagram__toolbar-status {
+    display: none;
+  }
+
+  .architecture-diagram--detailed .architecture-diagram__toolbar strong {
+    overflow: hidden;
+    max-width: 190px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .architecture-diagram--detailed figcaption {
+    padding: 14px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .architecture-flow--highlight {
+    animation: none;
+  }
+
+  .architecture-service__body,
+  .architecture-service__badge {
+    transition: none;
+  }
+}
