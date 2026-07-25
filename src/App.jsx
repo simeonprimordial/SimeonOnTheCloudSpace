@@ -6,7 +6,6 @@ import {
   ProjectHighlights,
   ScrollProgress,
 } from './components/HomeSections'
-import InkChaseBackground from './components/InkChaseBackground'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { caseStudies } from './data/portfolio'
 import CaseStudyPage from './pages/CaseStudyPage'
@@ -18,7 +17,6 @@ function HomePage() {
         Skip to content
       </a>
       <ScrollProgress />
-      <InkChaseBackground />
       <SiteHeader />
       <main id="main-content">
         <Hero />
