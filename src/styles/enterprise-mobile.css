@@ -7,81 +7,132 @@
     width: 100%;
     max-width: 100%;
     overflow: hidden;
+    border-color: rgba(148, 163, 184, 0.32);
+    background: #0f172a;
   }
 
-  .enterprise-diagram__header {
-    gap: 4px;
-    padding: 17px 16px 14px;
+  .architecture-diagram--enterprise .enterprise-diagram__header {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+    background: #f8fafc;
   }
 
-  .enterprise-diagram__header strong {
-    font-size: clamp(1.25rem, 7vw, 1.7rem);
-  }
-
-  .enterprise-diagram__header p {
-    font-size: 0.68rem;
-  }
-
-  .architecture-diagram--enterprise .enterprise-diagram__canvas--desktop {
-    display: none;
-  }
-
-  .architecture-diagram--enterprise .enterprise-diagram__canvas--mobile {
+  .architecture-diagram--enterprise .enterprise-diagram__header span,
+  .architecture-diagram--enterprise .enterprise-diagram__header strong,
+  .architecture-diagram--enterprise .enterprise-diagram__header p {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
     display: block;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-    height: auto;
-    padding: 6px 4px 10px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
   }
 
-  .enterprise-diagram__canvas--mobile .enterprise-cloud__label {
-    font-size: 17px;
+  .architecture-diagram--enterprise .enterprise-diagram__header span {
+    background: #d86b5d;
   }
 
-  .enterprise-diagram__canvas--mobile .enterprise-region__label {
-    font-size: 14px;
+  .architecture-diagram--enterprise .enterprise-diagram__header strong {
+    background: #e9a84f;
   }
 
-  .enterprise-diagram__canvas--mobile .enterprise-zone__label {
-    font-size: 12.5px;
+  .architecture-diagram--enterprise .enterprise-diagram__header p {
+    background: #42a67d;
   }
 
-  .enterprise-diagram__canvas--mobile .enterprise-service__label {
-    font-size: 13px;
+  .architecture-diagram--enterprise .enterprise-diagram__header::after {
+    margin-left: 7px;
+    content: 'logihaul-architecture.yml';
+    color: #64748b;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
-  .enterprise-diagram__canvas--mobile .enterprise-service__detail {
-    font-size: 10px;
-  }
-
-  .enterprise-diagram__canvas--mobile .enterprise-flow {
-    stroke-width: 2.2;
-  }
-
-  .enterprise-diagram__canvas--mobile .enterprise-flow--emphasis {
-    stroke-width: 2.8;
-  }
-
-  .enterprise-diagram__canvas--mobile .enterprise-spike-label,
-  .enterprise-diagram__canvas--mobile .enterprise-flow-note,
-  .enterprise-diagram__canvas--mobile .enterprise-note {
-    font-size: 10.5px;
+  .architecture-diagram--enterprise .enterprise-diagram__canvas--desktop,
+  .architecture-diagram--enterprise .enterprise-diagram__canvas--mobile {
+    display: none;
   }
 
   .architecture-diagram--enterprise figcaption {
     min-width: 0;
-    padding: 13px 15px;
-    font-size: 0.68rem;
+    min-height: 430px;
+    display: block;
+    margin: 0;
+    padding: 22px 20px 24px;
+    border-top: 0;
+    background:
+      linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+      #0f172a;
+    background-size: 100% 28px;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  .architecture-diagram--enterprise figcaption::before {
+    display: block;
+    content:
+      'architecture:\A'
+      '  name: LogiHaul Logistics Platform\A'
+      '  cloud: AWS\A'
+      '  primary_region: af-south-1\A'
+      '\A'
+      'traffic:\A'
+      '  entry: Application Load Balancer\A'
+      '  web_tier: EC2 Auto Scaling\A'
+      '  order_intake: HTTP API + Lambda\A'
+      '  spike_target: 50x\A'
+      '\A'
+      'data_services:\A'
+      '  orders_tracking: DynamoDB\A'
+      '  drivers_billing: RDS MySQL\A'
+      '  hot_reads: ElastiCache\A'
+      '  reports_evidence: Amazon S3\A'
+      '\A'
+      'event_processing:\A'
+      '  burst_buffer: Amazon SQS\A'
+      '  notifications: Lambda -> Amazon SNS\A'
+      '\A'
+      'operations:\A'
+      '  observability: CloudWatch\A'
+      '  disaster_recovery: S3 CRR -> eu-west-1';
+    color: #cbd5e1;
+    font-family: var(--font-mono);
+    font-size: clamp(0.63rem, 2.9vw, 0.76rem);
+    font-weight: 500;
+    line-height: 1.72;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 }
 
 @media (max-width: 420px) {
-  .enterprise-diagram__header span {
-    font-size: 0.52rem;
+  .architecture-diagram--enterprise .enterprise-diagram__header {
+    padding-inline: 12px;
   }
 
-  .enterprise-diagram__header p {
-    max-width: 31ch;
+  .architecture-diagram--enterprise .enterprise-diagram__header::after {
+    font-size: 0.56rem;
+  }
+
+  .architecture-diagram--enterprise figcaption {
+    min-height: 410px;
+    padding: 18px 15px 21px;
+  }
+
+  .architecture-diagram--enterprise figcaption::before {
+    font-size: 0.63rem;
+    line-height: 1.68;
   }
 }
