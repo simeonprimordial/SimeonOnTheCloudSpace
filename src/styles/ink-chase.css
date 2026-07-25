@@ -34,7 +34,7 @@
 .ink-chase__bird,
 .ink-chase__snake {
   color: #10243f;
-  filter: url(#ink-chase-soften);
+  filter: url('#ink-chase-soften');
   will-change: transform;
 }
 
