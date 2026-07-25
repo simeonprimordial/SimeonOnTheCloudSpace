@@ -1,0 +1,194 @@
+.portfolio-home {
+  --daypart-header-bg: rgba(255, 255, 255, 0.96);
+  --daypart-hero-mid: rgba(16, 28, 52, 0.88);
+  --daypart-hero-soft: rgba(16, 28, 52, 0.3);
+  --daypart-hero-faint: rgba(16, 28, 52, 0.08);
+  --daypart-hero-glow: rgba(15, 118, 110, 0.28);
+  --daypart-accent-light: #99f6e4;
+  --daypart-grid: rgba(153, 246, 228, 0.08);
+  --daypart-image-filter: saturate(0.82) contrast(1.05);
+  --daypart-mobile-top: rgba(16, 28, 52, 0.4);
+  --daypart-mobile-mid: rgba(16, 28, 52, 0.25);
+  --daypart-mobile-lower: rgba(16, 28, 52, 0.76);
+}
+
+.portfolio-home[data-daypart='dawn'] {
+  --clean-ink: #273047;
+  --clean-muted: #6f7280;
+  --clean-teal: #a85f35;
+  --clean-teal-dark: #824625;
+  --clean-mint: #f3ddd0;
+  --clean-paper: #faf4ee;
+  --clean-white: #fffdf9;
+  --clean-line: #e2d8d0;
+  --clean-night: #242b45;
+  --daypart-header-bg: rgba(255, 253, 249, 0.96);
+  --daypart-hero-mid: rgba(36, 43, 69, 0.88);
+  --daypart-hero-soft: rgba(97, 61, 54, 0.3);
+  --daypart-hero-faint: rgba(151, 89, 55, 0.09);
+  --daypart-hero-glow: rgba(201, 125, 73, 0.24);
+  --daypart-accent-light: #ffd0ad;
+  --daypart-grid: rgba(255, 208, 173, 0.08);
+  --daypart-image-filter: saturate(0.74) sepia(0.12) contrast(1.03);
+  --daypart-mobile-top: rgba(36, 43, 69, 0.36);
+  --daypart-mobile-mid: rgba(67, 49, 63, 0.28);
+  --daypart-mobile-lower: rgba(36, 43, 69, 0.8);
+}
+
+.portfolio-home[data-daypart='noon'] {
+  --clean-ink: #14213d;
+  --clean-muted: #667085;
+  --clean-teal: #0f766e;
+  --clean-teal-dark: #115e59;
+  --clean-mint: #ccfbf1;
+  --clean-paper: #f3f6f5;
+  --clean-white: #ffffff;
+  --clean-line: #d9e0df;
+  --clean-night: #101c34;
+  --daypart-header-bg: rgba(255, 255, 255, 0.96);
+  --daypart-hero-mid: rgba(16, 28, 52, 0.88);
+  --daypart-hero-soft: rgba(16, 28, 52, 0.3);
+  --daypart-hero-faint: rgba(16, 28, 52, 0.08);
+  --daypart-hero-glow: rgba(15, 118, 110, 0.28);
+  --daypart-accent-light: #99f6e4;
+  --daypart-grid: rgba(153, 246, 228, 0.08);
+  --daypart-image-filter: saturate(0.82) contrast(1.05);
+  --daypart-mobile-top: rgba(16, 28, 52, 0.4);
+  --daypart-mobile-mid: rgba(16, 28, 52, 0.25);
+  --daypart-mobile-lower: rgba(16, 28, 52, 0.76);
+}
+
+.portfolio-home[data-daypart='dusk'] {
+  --clean-ink: #302b3f;
+  --clean-muted: #746b79;
+  --clean-teal: #9c5a50;
+  --clean-teal-dark: #74423c;
+  --clean-mint: #f0d9d5;
+  --clean-paper: #f6f1f3;
+  --clean-white: #fffdfd;
+  --clean-line: #dfd4da;
+  --clean-night: #211d32;
+  --daypart-header-bg: rgba(255, 253, 253, 0.96);
+  --daypart-hero-mid: rgba(33, 29, 50, 0.9);
+  --daypart-hero-soft: rgba(99, 54, 65, 0.32);
+  --daypart-hero-faint: rgba(138, 70, 72, 0.1);
+  --daypart-hero-glow: rgba(181, 91, 78, 0.22);
+  --daypart-accent-light: #efb5a8;
+  --daypart-grid: rgba(239, 181, 168, 0.08);
+  --daypart-image-filter: saturate(0.7) contrast(1.07) hue-rotate(-8deg);
+  --daypart-mobile-top: rgba(33, 29, 50, 0.42);
+  --daypart-mobile-mid: rgba(77, 42, 56, 0.3);
+  --daypart-mobile-lower: rgba(33, 29, 50, 0.82);
+}
+
+.portfolio-home[data-daypart='midnight'] {
+  --clean-ink: #1b2940;
+  --clean-muted: #69778a;
+  --clean-teal: #3f6f88;
+  --clean-teal-dark: #2d5368;
+  --clean-mint: #dceaf2;
+  --clean-paper: #eef2f7;
+  --clean-white: #fafbfd;
+  --clean-line: #d4dce6;
+  --clean-night: #091321;
+  --daypart-header-bg: rgba(250, 251, 253, 0.96);
+  --daypart-hero-mid: rgba(9, 19, 33, 0.93);
+  --daypart-hero-soft: rgba(31, 58, 82, 0.34);
+  --daypart-hero-faint: rgba(49, 85, 112, 0.11);
+  --daypart-hero-glow: rgba(72, 120, 148, 0.22);
+  --daypart-accent-light: #b9d9e8;
+  --daypart-grid: rgba(185, 217, 232, 0.08);
+  --daypart-image-filter: saturate(0.56) brightness(0.84) contrast(1.12);
+  --daypart-mobile-top: rgba(9, 19, 33, 0.48);
+  --daypart-mobile-mid: rgba(19, 38, 57, 0.34);
+  --daypart-mobile-lower: rgba(9, 19, 33, 0.86);
+}
+
+.portfolio-home,
+.portfolio-home .site-header,
+.portfolio-home .clean-hero,
+.portfolio-home .clean-section,
+.portfolio-home .featured-project,
+.portfolio-home .selected-project,
+.portfolio-home .clean-contact,
+.portfolio-home .site-footer,
+.portfolio-home .mobile-nav {
+  transition:
+    background-color 900ms ease,
+    color 900ms ease,
+    border-color 900ms ease;
+}
+
+.portfolio-home .site-header {
+  background: var(--daypart-header-bg);
+}
+
+.portfolio-home .clean-hero__image {
+  filter: var(--daypart-image-filter);
+  transition: filter 900ms ease;
+}
+
+.portfolio-home .clean-hero__veil {
+  background:
+    linear-gradient(
+      90deg,
+      var(--clean-night) 0%,
+      var(--clean-night) 38%,
+      var(--daypart-hero-mid) 54%,
+      var(--daypart-hero-soft) 78%,
+      var(--daypart-hero-faint) 100%
+    ),
+    radial-gradient(circle at 78% 18%, var(--daypart-hero-glow), transparent 36%);
+}
+
+.portfolio-home .clean-kicker--light,
+.portfolio-home .clean-hero__role {
+  color: var(--daypart-accent-light);
+}
+
+.portfolio-home .featured-project,
+.portfolio-home .selected-project,
+.portfolio-home .mobile-nav {
+  background: var(--clean-white);
+}
+
+.portfolio-home .featured-project__visual {
+  background:
+    linear-gradient(var(--daypart-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--daypart-grid) 1px, transparent 1px),
+    var(--clean-night);
+  background-size: 32px 32px;
+}
+
+.portfolio-home .capability-card:hover,
+.portfolio-home .capability-card:focus-within {
+  background: var(--clean-white);
+}
+
+@media (max-width: 760px) {
+  .portfolio-home .clean-hero__veil {
+    background:
+      linear-gradient(
+        180deg,
+        var(--daypart-mobile-top) 0%,
+        var(--daypart-mobile-mid) 28%,
+        var(--daypart-mobile-lower) 58%,
+        var(--clean-night) 88%
+      );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home,
+  .portfolio-home .site-header,
+  .portfolio-home .clean-hero,
+  .portfolio-home .clean-section,
+  .portfolio-home .featured-project,
+  .portfolio-home .selected-project,
+  .portfolio-home .clean-contact,
+  .portfolio-home .site-footer,
+  .portfolio-home .mobile-nav,
+  .portfolio-home .clean-hero__image {
+    transition: none !important;
+  }
+}
