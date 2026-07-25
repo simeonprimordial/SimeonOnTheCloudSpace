@@ -8,11 +8,18 @@ import {
 } from './components/HomeSections'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { caseStudies } from './data/portfolio'
+import { useDaypartTheme } from './hooks/useDaypartTheme'
 import CaseStudyPage from './pages/CaseStudyPage'
 
 function HomePage() {
+  const daypart = useDaypartTheme()
+
   return (
-    <div className="site-shell portfolio-home">
+    <div
+      className="site-shell portfolio-home"
+      data-daypart={daypart.key}
+      data-daypart-label={daypart.label}
+    >
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
