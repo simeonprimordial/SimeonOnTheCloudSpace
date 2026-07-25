@@ -42,7 +42,7 @@ export function SiteHeader({ caseStudy = false }) {
 
         <a
           className="nav__resume"
-          href={`${import.meta.env.BASE_URL}Simeon-Siaka-Cloud-Infrastructure-CV.pdf`}
+          href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
           download
         >
           Download CV
@@ -70,7 +70,7 @@ export function SiteHeader({ caseStudy = false }) {
             </a>
           ))}
           <a
-            href={`${import.meta.env.BASE_URL}Simeon-Siaka-Cloud-Infrastructure-CV.pdf`}
+            href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
             download
             onClick={closeMenu}
           >
