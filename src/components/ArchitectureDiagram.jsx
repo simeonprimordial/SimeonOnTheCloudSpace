@@ -55,6 +55,118 @@ function EnterpriseFlow({ d, markerId, emphasis = false, dashed = false }) {
   return <path className={classes} d={d} markerEnd={`url(#${markerId})`} />
 }
 
+function LogiHaulMobileDiagram() {
+  const markerId = 'logihaul-enterprise-arrow-mobile'
+  const emphasisMarkerId = 'logihaul-enterprise-arrow-emphasis-mobile'
+
+  return (
+    <svg
+      className="enterprise-diagram__canvas enterprise-diagram__canvas--mobile"
+      viewBox="0 0 420 1240"
+      role="img"
+      aria-labelledby="logihaul-mobile-title logihaul-mobile-description"
+    >
+      <title id="logihaul-mobile-title">LogiHaul mobile enterprise AWS architecture</title>
+      <desc id="logihaul-mobile-description">
+        A vertically arranged mobile view of the LogiHaul AWS architecture, including traffic,
+        compute, data, asynchronous processing, monitoring, and disaster recovery.
+      </desc>
+
+      <defs>
+        <marker id={markerId} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 Z" />
+        </marker>
+        <marker
+          id={emphasisMarkerId}
+          markerWidth="9"
+          markerHeight="9"
+          refX="8"
+          refY="4.5"
+          orient="auto"
+        >
+          <path className="enterprise-marker--emphasis" d="M0,0 L9,4.5 L0,9 Z" />
+        </marker>
+      </defs>
+
+      <rect className="enterprise-cloud" x="10" y="10" width="400" height="1220" rx="18" />
+      <text className="enterprise-cloud__label" x="28" y="40">
+        AWS Cloud
+      </text>
+
+      <rect className="enterprise-region" x="24" y="52" width="372" height="995" rx="15" />
+      <text className="enterprise-region__label" x="42" y="78">
+        Primary Region · af-south-1
+      </text>
+
+      <rect className="enterprise-zone" x="40" y="94" width="340" height="294" rx="12" />
+      <text className="enterprise-zone__label" x="56" y="120">
+        Traffic and compute · Multi-AZ
+      </text>
+
+      <EnterpriseService x={60} y={140} width={300} label="Users" detail="Web · mobile" tone="edge" />
+      <EnterpriseService x={60} y={220} width={300} label="Application Load Balancer" detail="Public traffic entry" tone="network" />
+      <EnterpriseService x={50} y={310} width={145} label="EC2 Auto Scaling" detail="Web application" />
+      <EnterpriseService x={225} y={310} width={145} label="HTTP API + Lambda" detail="Order intake" tone="serverless" />
+
+      <rect className="enterprise-zone" x="40" y="410" width="340" height="330" rx="12" />
+      <text className="enterprise-zone__label" x="56" y="436">
+        Data services
+      </text>
+
+      <EnterpriseService x={50} y={475} width={145} label="RDS MySQL" detail="Drivers · billing" tone="database" />
+      <EnterpriseService x={225} y={475} width={145} label="DynamoDB" detail="Orders · tracking" tone="database" />
+      <EnterpriseService x={50} y={570} width={145} label="ElastiCache" detail="Hot tracking reads" tone="cache" />
+      <EnterpriseService x={50} y={665} width={145} label="Amazon S3" detail="Reports · evidence" tone="storage" />
+
+      <rect className="enterprise-zone" x="40" y="762" width="340" height="285" rx="12" />
+      <text className="enterprise-zone__label" x="56" y="788">
+        Integration and operations
+      </text>
+
+      <EnterpriseService x={225} y={810} width={145} label="Amazon SQS" detail="Burst buffer" tone="integration" />
+      <EnterpriseService x={50} y={895} width={145} label="CloudWatch" detail="Logs · metrics · alarms" tone="operations" />
+      <EnterpriseService x={225} y={895} width={145} label="Lambda" detail="Notifications" tone="serverless" />
+      <EnterpriseService x={225} y={975} width={145} label="Amazon SNS" detail="Email · SMS" tone="integration" />
+
+      <rect className="enterprise-region enterprise-region--secondary" x="24" y="1070" width="372" height="145" rx="15" />
+      <text className="enterprise-region__label" x="42" y="1097">
+        Disaster recovery · eu-west-1
+      </text>
+      <EnterpriseService x={60} y={1120} width={300} label="Amazon S3" detail="Cross-region replica" tone="storage" />
+      <text className="enterprise-note" x="210" y="1196" textAnchor="middle">
+        Versioned recovery copy
+      </text>
+
+      <EnterpriseFlow d="M210 198 V220" markerId={markerId} />
+      <EnterpriseFlow d="M210 278 V292 H122 V310" markerId={markerId} />
+      <EnterpriseFlow d="M210 278 V292 H297 V310" markerId={markerId} />
+
+      <EnterpriseFlow d="M122 368 V475" markerId={markerId} />
+      <EnterpriseFlow d="M50 339 H28 V599 H50" markerId={markerId} />
+      <EnterpriseFlow d="M50 339 H22 V694 H50" markerId={markerId} />
+
+      <EnterpriseFlow d="M297 368 V475" markerId={emphasisMarkerId} emphasis />
+      <text className="enterprise-spike-label" x="305" y="438">
+        50× spike path
+      </text>
+      <EnterpriseFlow d="M297 533 V810" markerId={emphasisMarkerId} emphasis />
+      <EnterpriseFlow d="M297 868 V895" markerId={markerId} />
+      <EnterpriseFlow d="M297 953 V975" markerId={markerId} />
+
+      <EnterpriseFlow d="M50 504 H24 V924 H50" markerId={markerId} dashed />
+      <EnterpriseFlow d="M225 339 H205 V924 H195" markerId={markerId} dashed />
+      <text className="enterprise-flow-note" x="58" y="878">
+        Observability
+      </text>
+
+      <EnterpriseFlow d="M50 694 H18 V1098 H210 V1120" markerId={markerId} dashed />
+      <text className="enterprise-flow-note" x="32" y="1060">
+        S3 CRR
+      </text>
+    </svg>
+  )
+}
+
 function LogiHaulEnterpriseDiagram({ compact }) {
   const markerId = 'logihaul-enterprise-arrow'
   const emphasisMarkerId = 'logihaul-enterprise-arrow-emphasis'
@@ -72,7 +184,7 @@ function LogiHaulEnterpriseDiagram({ compact }) {
       </div>
 
       <svg
-        className="enterprise-diagram__canvas"
+        className="enterprise-diagram__canvas enterprise-diagram__canvas--desktop"
         viewBox="0 0 980 620"
         role="img"
         aria-labelledby="logihaul-enterprise-title logihaul-enterprise-description"
@@ -181,6 +293,8 @@ function LogiHaulEnterpriseDiagram({ compact }) {
           Metrics and logs
         </text>
       </svg>
+
+      <LogiHaulMobileDiagram />
 
       <figcaption>
         Independent scale paths separate web traffic, order intake, relational workloads,
