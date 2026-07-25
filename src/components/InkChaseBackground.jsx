@@ -87,7 +87,7 @@ export default function InkChaseBackground() {
 
   return (
     <div className="ink-chase" aria-hidden="true" ref={layerRef}>
-      <svg className="ink-chase__canvas" viewBox="0 0 1000 700" preserveAspectRatio="none">
+      <svg className="ink-chase__canvas" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice">
         <defs>
           <filter id="ink-chase-soften" x="-30%" y="-30%" width="160%" height="160%">
             <feTurbulence baseFrequency="0.018" numOctaves="2" seed="12" type="fractalNoise" result="noise" />
