@@ -167,7 +167,7 @@ export function Hero() {
             </a>
             <a
               className="clean-button clean-button--ghost"
-              href={`${import.meta.env.BASE_URL}Simeon-Siaka-Cloud-Infrastructure-CV.pdf`}
+              href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
               download
             >
               Download CV
