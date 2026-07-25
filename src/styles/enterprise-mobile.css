@@ -1,0 +1,87 @@
+.enterprise-diagram__canvas--mobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .architecture-diagram--enterprise {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .enterprise-diagram__header {
+    gap: 4px;
+    padding: 17px 16px 14px;
+  }
+
+  .enterprise-diagram__header strong {
+    font-size: clamp(1.25rem, 7vw, 1.7rem);
+  }
+
+  .enterprise-diagram__header p {
+    font-size: 0.68rem;
+  }
+
+  .architecture-diagram--enterprise .enterprise-diagram__canvas--desktop {
+    display: none;
+  }
+
+  .architecture-diagram--enterprise .enterprise-diagram__canvas--mobile {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding: 6px 4px 10px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-cloud__label {
+    font-size: 17px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-region__label {
+    font-size: 14px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-zone__label {
+    font-size: 12.5px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-service__label {
+    font-size: 13px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-service__detail {
+    font-size: 10px;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-flow {
+    stroke-width: 2.2;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-flow--emphasis {
+    stroke-width: 2.8;
+  }
+
+  .enterprise-diagram__canvas--mobile .enterprise-spike-label,
+  .enterprise-diagram__canvas--mobile .enterprise-flow-note,
+  .enterprise-diagram__canvas--mobile .enterprise-note {
+    font-size: 10.5px;
+  }
+
+  .architecture-diagram--enterprise figcaption {
+    min-width: 0;
+    padding: 13px 15px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .enterprise-diagram__header span {
+    font-size: 0.52rem;
+  }
+
+  .enterprise-diagram__header p {
+    max-width: 31ch;
+  }
+}
