@@ -78,3 +78,46 @@ a.learning-card:hover { background: var(--white); box-shadow: 0 18px 36px rgba(1
 .site-footer__inner > div { display: grid; gap: 5px; }
 .site-footer__inner strong { font-family: var(--font-serif); font-size: 1.15rem; }
 .site-footer__inner span, .site-footer p, .site-footer a { color: rgba(255, 253, 248, 0.62); font-family: var(--font-mono); font-size: 0.59rem; }
+
+/* Plain enterprise architecture treatment for the featured LogiHaul project */
+.architecture-diagram--enterprise { background: #ffffff; background-image: none; }
+.enterprise-diagram__header { display: grid; gap: 5px; padding: 22px 24px 18px; border-bottom: 1px solid var(--line-dark); background: #f8fafc; }
+.enterprise-diagram__header span { color: var(--teal); font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.enterprise-diagram__header strong { color: var(--ink); font-family: var(--font-serif); font-size: clamp(1.45rem, 2.6vw, 2.15rem); line-height: 1.1; }
+.enterprise-diagram__header p { margin: 2px 0 0; color: var(--ink-soft); font-size: 0.72rem; line-height: 1.55; }
+.architecture-diagram--enterprise .enterprise-diagram__canvas { display: block; width: 100%; min-height: 0; padding: 10px 12px 14px; }
+.enterprise-cloud { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
+.enterprise-cloud__label, .enterprise-region__label, .enterprise-zone__label { fill: #334155; font-family: var(--font-sans); font-weight: 800; }
+.enterprise-cloud__label { font-size: 15px; }
+.enterprise-region { fill: #ffffff; stroke: #0f766e; stroke-dasharray: 7 5; stroke-width: 1.5; }
+.enterprise-region--secondary { fill: #f8fafc; stroke: #64748b; }
+.enterprise-region__label { font-size: 12px; }
+.enterprise-zone { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
+.enterprise-zone__label { font-size: 11px; letter-spacing: 0.02em; }
+.enterprise-service rect { stroke-width: 1.4; }
+.enterprise-service__label, .enterprise-service__detail { font-family: var(--font-sans); text-anchor: middle; }
+.enterprise-service__label { fill: #0f172a; font-size: 11px; font-weight: 800; }
+.enterprise-service__detail { fill: #64748b; font-size: 8.6px; font-weight: 600; }
+.enterprise-service--edge rect { fill: #ffffff; stroke: #64748b; }
+.enterprise-service--network rect { fill: #fff7ed; stroke: #f97316; }
+.enterprise-service--compute rect { fill: #eff6ff; stroke: #2563eb; }
+.enterprise-service--serverless rect { fill: #fff7ed; stroke: #ea580c; }
+.enterprise-service--database rect { fill: #f5f3ff; stroke: #7c3aed; }
+.enterprise-service--cache rect { fill: #fef2f2; stroke: #dc2626; }
+.enterprise-service--storage rect { fill: #ecfdf5; stroke: #059669; }
+.enterprise-service--integration rect { fill: #fff7ed; stroke: #d97706; }
+.enterprise-service--operations rect { fill: #f0fdfa; stroke: #0f766e; }
+.enterprise-flow { fill: none; stroke: #64748b; stroke-width: 1.7; }
+.enterprise-flow--emphasis { stroke: #ea580c; stroke-width: 2.2; }
+.enterprise-flow--dashed { stroke-dasharray: 7 5; }
+.enterprise-flow marker path { fill: #64748b; }
+.enterprise-marker--emphasis { fill: #ea580c; }
+.enterprise-spike-label { fill: #c2410c; font-family: var(--font-mono); font-size: 9px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.enterprise-flow-note, .enterprise-note { fill: #64748b; font-family: var(--font-sans); font-size: 8.5px; font-weight: 700; }
+
+@media (max-width: 720px) {
+  .enterprise-diagram__header { padding: 18px; }
+  .architecture-diagram--enterprise .enterprise-diagram__canvas { min-width: 760px; }
+  .architecture-diagram--enterprise { overflow-x: auto; }
+  .architecture-diagram--enterprise figcaption { min-width: 760px; }
+}
