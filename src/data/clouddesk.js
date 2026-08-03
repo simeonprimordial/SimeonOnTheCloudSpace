@@ -111,6 +111,10 @@ export function registerCloudDeskPortfolio() {
     caseStudies.unshift(clouddeskCaseStudy)
   }
 
+  caseStudies.forEach((project, index) => {
+    project.number = String(index + 1).padStart(2, '0')
+  })
+
   for (let index = archiveProjects.length - 1; index >= 0; index -= 1) {
     if (archiveProjects[index].name === clouddeskCaseStudy.name) {
       archiveProjects.splice(index, 1)
