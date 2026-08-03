@@ -1,4 +1,15 @@
 const nodePositions = {
+  clouddesk: [
+    { x: 64, y: 104, label: 'API Client', type: 'edge' },
+    { x: 180, y: 104, label: 'Cognito', type: 'identity' },
+    { x: 306, y: 104, label: 'HTTP API', type: 'route' },
+    { x: 432, y: 70, label: 'Lambda', type: 'compute' },
+    { x: 432, y: 146, label: 'Shared Layer', type: 'compute' },
+    { x: 570, y: 70, label: 'PostgreSQL', type: 'data' },
+    { x: 570, y: 146, label: 'Secrets', type: 'identity' },
+    { x: 282, y: 208, label: 'OIDC / STS', type: 'identity' },
+    { x: 630, y: 208, label: 'CloudWatch', type: 'signal' },
+  ],
   fintrust: [
     { x: 70, y: 105, label: 'Users', type: 'edge' },
     { x: 205, y: 105, label: 'ALB', type: 'route' },
@@ -20,6 +31,7 @@ const nodePositions = {
 }
 
 const paths = {
+  clouddesk: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [4, 6], [7, 3], [3, 8]],
   fintrust: [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [4, 6], [5, 6]],
   novatech: [[0, 1], [1, 2], [3, 4], [4, 5], [5, 2], [5, 6]],
 }
@@ -229,6 +241,7 @@ export function ArchitectureDiagram({ variant, compact = false }) {
         ))}
       </svg>
       <figcaption>
+        {variant === 'clouddesk' && 'Cognito-protected serverless APIs with tenant authorization, private data access, keyless deployment, and CloudWatch observability.'}
         {variant === 'fintrust' && 'Public load balancing with private application, database, and secret paths.'}
         {variant === 'novatech' && 'Private-origin delivery and keyless CI/CD identity through OIDC.'}
       </figcaption>
