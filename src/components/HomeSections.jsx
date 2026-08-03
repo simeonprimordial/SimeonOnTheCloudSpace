@@ -193,7 +193,7 @@ export function Hero() {
 
           <p className="clean-hero__availability hero-entrance hero-entrance--seven">
             <span aria-hidden="true" />
-            Open to junior cloud, DevOps, and cloud support opportunities
+            Open to cloud, DevOps, and cloud support opportunities
           </p>
         </div>
       </div>
@@ -392,7 +392,7 @@ export function Contact() {
         <p className="clean-kicker clean-kicker--light">Let&apos;s connect</p>
         <h2>Looking for someone who can grow into reliable cloud operations?</h2>
         <p>
-          I am open to junior cloud infrastructure, DevOps, and cloud support roles where I can
+          I am open to cloud infrastructure, DevOps, and cloud support roles where I can
           contribute, learn from experienced engineers, and keep building production-minded
           systems.
         </p>
