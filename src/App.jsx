@@ -7,9 +7,12 @@ import {
   ScrollProgress,
 } from './components/HomeSections'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
+import { registerCloudDeskPortfolio } from './data/clouddesk'
 import { caseStudies } from './data/portfolio'
 import { useDaypartTheme } from './hooks/useDaypartTheme'
 import CaseStudyPage from './pages/CaseStudyPage'
+
+registerCloudDeskPortfolio()
 
 function HomePage() {
   const daypart = useDaypartTheme()
