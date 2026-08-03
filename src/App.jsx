@@ -2,15 +2,16 @@ import {
   About,
   Contact,
   Hero,
-  ProjectArchive,
   ProjectHighlights,
   ScrollProgress,
 } from './components/HomeSections'
+import { ProjectArchive } from './components/ProjectArchive'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { registerCloudDeskPortfolio } from './data/clouddesk'
 import { caseStudies } from './data/portfolio'
 import { useDaypartTheme } from './hooks/useDaypartTheme'
 import CaseStudyPage from './pages/CaseStudyPage'
+import ProjectsPage from './pages/ProjectsPage'
 
 registerCloudDeskPortfolio()
 
@@ -41,11 +42,17 @@ function HomePage() {
 }
 
 function App() {
-  const slug = new URLSearchParams(window.location.search).get('case')
+  const searchParams = new URLSearchParams(window.location.search)
+  const slug = searchParams.get('case')
+  const page = searchParams.get('page')
   const project = caseStudies.find((item) => item.slug === slug)
 
   if (project) {
     return <CaseStudyPage project={project} />
+  }
+
+  if (page === 'projects') {
+    return <ProjectsPage />
   }
 
   return <HomePage />
