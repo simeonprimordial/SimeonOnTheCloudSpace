@@ -1,4 +1,10 @@
-import { archiveProjects, caseStudies, journey } from './portfolio'
+import {
+  archiveProjects,
+  caseStudies,
+  journey,
+  learning,
+  skillGroups,
+} from './portfolio'
 
 export const clouddeskCaseStudy = {
   slug: 'clouddesk',
@@ -106,6 +112,117 @@ export const clouddeskCaseStudy = {
   ],
 }
 
+const currentSkillGroups = [
+  {
+    title: 'Cloud architecture and data',
+    skills: [
+      'AWS',
+      'VPC & networking',
+      'EC2 & Auto Scaling',
+      'Lambda',
+      'API Gateway',
+      'RDS & PostgreSQL',
+      'DynamoDB',
+      'SQS & SNS',
+    ],
+  },
+  {
+    title: 'Infrastructure and delivery',
+    skills: [
+      'Terraform',
+      'AWS SAM',
+      'CloudFormation',
+      'Docker',
+      'Amazon ECR',
+      'GitHub Actions',
+      'Linux',
+      'Bash',
+    ],
+  },
+  {
+    title: 'Security, quality and operations',
+    skills: [
+      'IAM',
+      'Cognito & JWT',
+      'Tenant RBAC',
+      'OIDC & STS',
+      'Secrets Manager',
+      'pytest & coverage',
+      'CloudWatch',
+      'Runbooks & diagrams',
+    ],
+  },
+]
+
+const currentArchiveProjects = [
+  {
+    type: 'High availability',
+    name: 'Highly Available Web Application',
+    period: '2026',
+    description: 'Terraform-provisioned load balancing, health checks, launch templates, and Auto Scaling.',
+    technologies: ['Terraform', 'ALB', 'EC2', 'Auto Scaling'],
+    url: 'https://github.com/simeonprimordial/highly-available-web-app-terraform',
+  },
+  {
+    type: 'Containers',
+    name: 'FinTrust NLB Docker Service',
+    period: '2026',
+    description: 'Containerized Flask service delivered through a Network Load Balancer and Auto Scaling.',
+    technologies: ['Docker', 'Terraform', 'Python', 'NLB', 'Auto Scaling'],
+    url: 'https://github.com/simeonprimordial/fintrust-nlb-docker',
+  },
+  {
+    type: 'Edge delivery',
+    name: 'Static Website with CloudFront',
+    period: '2026',
+    description: 'Static content hosted in Amazon S3 and distributed globally through CloudFront.',
+    technologies: ['Amazon S3', 'CloudFront', 'IAM'],
+    url: 'https://github.com/simeonprimordial/aws-static-website-cloudfront',
+  },
+  {
+    type: 'Linux administration',
+    name: 'EC2 Apache Web Server',
+    period: '2026',
+    description: 'EC2 provisioning, network access, Linux administration, and automated Apache setup.',
+    technologies: ['EC2', 'Linux', 'Apache', 'Security Groups'],
+    url: 'https://github.com/simeonprimordial/aws-ec2-apache-webserver',
+  },
+  {
+    type: 'Managed hosting',
+    name: 'WordPress on Amazon Lightsail',
+    period: '2026',
+    description: 'WordPress deployment and administration using Lightsail, Linux, static IP, and snapshots.',
+    technologies: ['Lightsail', 'WordPress', 'Linux', 'DNS'],
+    url: 'https://github.com/simeonprimordial/aws-wordpress-lightsail',
+  },
+  {
+    type: 'Storage security',
+    name: 'Lagos Law Firm S3 DMS',
+    period: '2026',
+    description: 'Encrypted document storage with lifecycle controls and presigned access.',
+    technologies: ['S3', 'IAM', 'Encryption', 'Lifecycle'],
+    url: 'https://github.com/simeonprimordial/lagos-lawfirm-s3-dms',
+  },
+  {
+    type: 'Learning system',
+    name: 'AWS 80 Projects Challenge',
+    period: '8 / 80',
+    description: 'Central index for eight completed AWS projects spanning compute, containers, serverless, security, CI/CD, and observability.',
+    technologies: ['AWS', 'Terraform', 'AWS SAM', 'Docker', 'CI/CD'],
+    url: 'https://github.com/simeonprimordial/AWS80ProjectsChallenge',
+  },
+]
+
+function upsertArchiveProject(project) {
+  const existingIndex = archiveProjects.findIndex((item) => item.name === project.name)
+
+  if (existingIndex >= 0) {
+    archiveProjects[existingIndex] = project
+  } else {
+    archiveProjects.push(project)
+  }
+}
+
 export function registerCloudDeskPortfolio() {
   if (!caseStudies.some((project) => project.slug === clouddeskCaseStudy.slug)) {
     caseStudies.unshift(clouddeskCaseStudy)
@@ -121,6 +238,9 @@ export function registerCloudDeskPortfolio() {
     }
   }
 
+  currentArchiveProjects.forEach(upsertArchiveProject)
+  skillGroups.splice(0, skillGroups.length, ...currentSkillGroups)
+
   const currentStage = journey.find((stage) => stage.label === 'Stage 04')
 
   if (currentStage) {
@@ -130,5 +250,12 @@ export function registerCloudDeskPortfolio() {
       text: 'Built a serverless SaaS backend with Cognito identity, tenant-level RBAC, Lambda, PostgreSQL, automated testing, secure deployment, and AWS-native observability.',
       technologies: ['Python', 'AWS SAM', 'Lambda', 'Cognito', 'PostgreSQL', 'GitHub Actions'],
     })
+  }
+
+  const structuredPractice = learning.find((item) => item.title === 'AWS 80 Projects Challenge')
+
+  if (structuredPractice) {
+    structuredPractice.detail =
+      'Eight completed projects progressing from AWS foundations through Terraform, containers, serverless SaaS, testing, secure CI/CD, and observability.'
   }
 }
