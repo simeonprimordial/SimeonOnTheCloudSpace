@@ -1,0 +1,13 @@
+@media (max-width: 760px) {
+  .portfolio-home .clean-hero__media {
+    background: var(--clean-night);
+  }
+
+  .portfolio-home .clean-hero__image {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 86%;
+    object-fit: cover;
+    object-position: center 16%;
+  }
+}
