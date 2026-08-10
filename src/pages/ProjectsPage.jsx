@@ -144,13 +144,13 @@ export default function ProjectsPage() {
         <section className="project-library-hero" id="top">
           <div className="container project-library-hero__inner">
             <div>
-              <p className="clean-kicker clean-kicker--light">Complete project library</p>
-              <h1>Every build, arranged by engineering relevance.</h1>
+              <p className="clean-kicker clean-kicker--light">Project library</p>
+              <h1>Cloud Engineering Project Library</h1>
             </div>
             <div className="project-library-hero__copy">
               <p>
-                Explore the full public GitHub portfolio. Search by AWS service, tool, language,
-                platform, or skill to find the evidence most relevant to a role or technical need.
+                Public GitHub projects indexed by engineering relevance and searchable by AWS
+                service, tool, language, platform, and skill.
               </p>
               <a href="./#more-work">
                 Back to selected projects <ArrowIcon />
@@ -162,13 +162,13 @@ export default function ProjectsPage() {
         <section className="project-library-controls" aria-label="Project search and filters">
           <div className="container">
             <label className="project-search" htmlFor="project-search-input">
-              <span>Search by tools and skills</span>
+              <span>Tools and skills</span>
               <input
                 id="project-search-input"
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Try Terraform, Cognito, Docker, Linux, security..."
+                placeholder="Terraform, Cognito, Docker, Linux, security..."
                 autoComplete="off"
               />
             </label>
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
               </div>
 
               <label className="project-sort" htmlFor="project-sort-select">
-                <span>Arrange by</span>
+                <span>Sort</span>
                 <select
                   id="project-sort-select"
                   value={sortOrder}
@@ -227,8 +227,8 @@ export default function ProjectsPage() {
             ) : (
               <div className="project-library-empty">
                 <p className="clean-kicker">No matching projects</p>
-                <h2>Try a broader tool, service, or skill.</h2>
-                <p>Examples: AWS, Terraform, serverless, Docker, Linux, security, or CI/CD.</p>
+                <h2>No Projects Match the Current Filters</h2>
+                <p>Search examples: AWS, Terraform, serverless, Docker, Linux, security, or CI/CD.</p>
                 <button
                   type="button"
                   onClick={() => {
