@@ -209,12 +209,12 @@ export function ProjectHighlights() {
       <div className="container">
         <Reveal className="clean-section__heading">
           <div>
-            <p className="clean-kicker">Featured work</p>
-            <h2 className="clean-title">Cloud systems presented as engineering case studies.</h2>
+            <p className="clean-kicker">Selected work</p>
+            <h2 className="clean-title">Selected Cloud Engineering Projects</h2>
           </div>
           <p className="clean-lead">
-            A focused selection showing architecture decisions, security controls, automation,
-            failure thinking, and the evidence used to verify each build.
+            Architecture, security, automation, resilience, and validation across
+            production-oriented AWS projects.
           </p>
         </Reveal>
 
@@ -302,8 +302,8 @@ export function About() {
     <section className="clean-section" id="about">
       <div className="container clean-about">
         <Reveal className="clean-about__intro">
-          <p className="clean-kicker">About</p>
-          <h2 className="clean-title">I am building depth, not just collecting tools.</h2>
+          <p className="clean-kicker">Engineering profile</p>
+          <h2 className="clean-title">Cloud Infrastructure &amp; DevOps Engineering</h2>
         </Reveal>
 
         <Reveal className="clean-about__copy" delay={100}>
@@ -342,8 +342,8 @@ export function ProjectArchive() {
       <div className="container">
         <Reveal className="clean-section__heading clean-section__heading--compact">
           <div>
-            <p className="clean-kicker">More work</p>
-            <h2 className="clean-title clean-title--small">Additional hands-on cloud projects.</h2>
+            <p className="clean-kicker">Project archive</p>
+            <h2 className="clean-title clean-title--small">Additional Cloud Engineering Projects</h2>
           </div>
           <a
             className="clean-text-link"
@@ -389,8 +389,8 @@ export function Contact() {
   return (
     <section className="clean-contact" id="contact">
       <Reveal className="container clean-contact__inner">
-        <p className="clean-kicker clean-kicker--light">Let&apos;s connect</p>
-        <h2>Looking for someone who can grow into reliable cloud operations?</h2>
+        <p className="clean-kicker clean-kicker--light">Contact</p>
+        <h2>Cloud Infrastructure &amp; DevOps Opportunities</h2>
         <p>
           I am open to cloud infrastructure, DevOps, and cloud support roles where I can
           contribute, learn from experienced engineers, and keep building production-minded
