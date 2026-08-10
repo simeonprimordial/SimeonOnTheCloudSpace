@@ -54,12 +54,12 @@ export default function CaseStudyPage({ project }) {
           <div className="container case-study-overview__grid">
             <div className="case-study-overview__copy">
               <span>Business problem</span>
-              <h2>What the system needed to solve</h2>
+              <h2>Business Requirements</h2>
               <p>{project.problem}</p>
             </div>
             <div className="case-study-overview__copy">
               <span>My contribution</span>
-              <h2>What I implemented</h2>
+              <h2>Engineering Contribution</h2>
               <p>{project.contribution}</p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function CaseStudyPage({ project }) {
           <div className="container">
             <div className="case-study-section-heading">
               <span>Architecture</span>
-              <h2>The operating model at a glance</h2>
+              <h2>System Architecture</h2>
             </div>
             <ArchitectureDiagram variant={project.architecture} />
           </div>
@@ -79,7 +79,7 @@ export default function CaseStudyPage({ project }) {
           <div className="container">
             <div className="case-study-section-heading">
               <span>Design decisions</span>
-              <h2>Why the services were used this way</h2>
+              <h2>Architecture Decisions</h2>
             </div>
             <div className="decision-grid">
               {project.decisions.map((decision, index) => (
@@ -97,7 +97,7 @@ export default function CaseStudyPage({ project }) {
           <div className="container">
             <div className="case-study-section-heading">
               <span>Visual evidence</span>
-              <h2>Architecture, delivery, and operational proof</h2>
+              <h2>Engineering Evidence</h2>
             </div>
             <div className="evidence-grid">
               {project.evidence.map((item, index) => (
@@ -125,9 +125,9 @@ export default function CaseStudyPage({ project }) {
         <section className="section case-study-details">
           <div className="container case-study-details__grid">
             <DetailList title="Responsibilities" items={project.responsibilities} />
-            <DetailList title="Security controls" items={project.security} />
-            <DetailList title="Failure and scaling considerations" items={project.resilience} />
-            <DetailList title="Deployment workflow" items={project.deployment} />
+            <DetailList title="Security Controls" items={project.security} />
+            <DetailList title="Resilience & Scaling" items={project.resilience} />
+            <DetailList title="Deployment Workflow" items={project.deployment} />
           </div>
         </section>
 
@@ -135,7 +135,7 @@ export default function CaseStudyPage({ project }) {
           <div className="container case-study-lessons__grid">
             <div>
               <span>Lessons learned</span>
-              <h2>What the project changed in my engineering approach</h2>
+              <h2>Engineering Lessons</h2>
             </div>
             <ol>
               {project.lessons.map((lesson) => (
@@ -149,7 +149,7 @@ export default function CaseStudyPage({ project }) {
           <div className="container case-study-stack__grid">
             <div>
               <span>Technology stack</span>
-              <h2>Services and tools used</h2>
+              <h2>Technology Stack</h2>
               <TechnologyList items={project.technologies} />
             </div>
             <aside className="demo-status">

@@ -81,14 +81,11 @@ export function ProjectArchive() {
       <div className="container">
         <div className="clean-section__heading clean-section__heading--compact">
           <div>
-            <p className="clean-kicker">More work</p>
-            <h2 className="clean-title clean-title--small">
-              Seven projects rotating across the full portfolio.
-            </h2>
+            <p className="clean-kicker">Project archive</p>
+            <h2 className="clean-title clean-title--small">Cloud Engineering Projects</h2>
             <p className="project-index__rotation-note">
               <span aria-hidden="true" />
-              One project changes every nine seconds. Rotation pauses while you interact with this
-              section.
+              Homepage selection rotates every nine seconds and pauses during interaction.
             </p>
           </div>
           <a className="clean-text-link" href="?page=projects">
@@ -123,7 +120,7 @@ export function ProjectArchive() {
 
         <div className="project-index__more">
           <div>
-            <p>Looking for a specific AWS service, tool, language, or engineering skill?</p>
+            <p>Search the complete portfolio by AWS service, tool, language, or engineering skill.</p>
             <span className="project-index__source-status">
               {sourceStatus === 'loading' && 'Refreshing the public project pool from GitHub…'}
               {sourceStatus === 'live' && 'Rotating from the live public GitHub project library.'}
