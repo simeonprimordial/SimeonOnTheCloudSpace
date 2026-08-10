@@ -4,7 +4,7 @@ import { MenuIcon } from './Common'
 const navigation = [
   { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
-  { href: '#more-work', label: 'More work' },
+  { href: '#more-work', label: 'Project Archive' },
   { href: '#contact', label: 'Contact' },
 ]
 
