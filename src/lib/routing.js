@@ -1,29 +1,47 @@
-/** Hash-based routes that work on GitHub Pages without SPA server fallback. */
+/**
+ * App routes use the #/ prefix so they do not collide with in-page section anchors
+ * like #projects, #about, and #contact on the home page.
+ *
+ * Routes:
+ *   #/                  home
+ *   #/projects          projects archive page
+ *   #/case/:slug        case study page
+ *
+ * Legacy query params (?case=slug, ?page=projects) remain supported.
+ */
 
 export function getRoute() {
-  const raw = window.location.hash.replace(/^#\/?/, '')
-  const [path = '', queryString = ''] = raw.split('?')
-  const segments = path.split('/').filter(Boolean)
-  const params = new URLSearchParams(queryString)
-
-  // Legacy support: ?case=slug and ?page=projects
+  const hash = window.location.hash || ''
   const search = new URLSearchParams(window.location.search)
   const legacyCase = search.get('case')
   const legacyPage = search.get('page')
 
-  if (segments[0] === 'case' && segments[1]) {
-    return { type: 'case', slug: segments[1], params }
-  }
+  // Only treat as an app route when the hash starts with "#/".
+  if (hash.startsWith('#/')) {
+    const raw = hash.slice(2)
+    const [path = ''] = raw.split('?')
+    const segments = path.split('/').filter(Boolean)
 
-  if (segments[0] === 'projects' || legacyPage === 'projects') {
-    return { type: 'projects', params }
+    if (segments[0] === 'case' && segments[1]) {
+      return { type: 'case', slug: decodeURIComponent(segments[1]) }
+    }
+
+    if (segments[0] === 'projects') {
+      return { type: 'projects' }
+    }
+
+    return { type: 'home' }
   }
 
   if (legacyCase) {
-    return { type: 'case', slug: legacyCase, params }
+    return { type: 'case', slug: legacyCase }
   }
 
-  return { type: 'home', params }
+  if (legacyPage === 'projects') {
+    return { type: 'projects' }
+  }
+
+  return { type: 'home' }
 }
 
 export function caseStudyHref(slug) {
@@ -38,15 +56,6 @@ export function homeHref() {
   return '#/'
 }
 
-export function homeProjectsHref() {
-  return '#projects'
-}
-
-export function navigate(hashPath) {
-  const next = hashPath.startsWith('#') ? hashPath : `#${hashPath}`
-  if (window.location.hash === next) {
-    window.dispatchEvent(new HashChangeEvent('hashchange'))
-    return
-  }
-  window.location.hash = next.replace(/^#/, '')
+export function homeSectionHref(sectionId) {
+  return `#${sectionId}`
 }

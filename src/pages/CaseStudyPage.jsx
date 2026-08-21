@@ -1,8 +1,8 @@
 import { ArchitectureDiagram } from '../components/ArchitectureDiagram'
 import { ArrowIcon, MetricGrid, TechnologyList } from '../components/Common'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
-import { caseStudyHref } from '../lib/routing'
 import { caseStudies } from '../data/portfolio'
+import { caseStudyHref } from '../lib/routing'
 
 function DetailList({ title, items }) {
   return (
@@ -33,6 +33,12 @@ const nextStepsBySlug = {
     'Automate security scanning of static assets and dependency manifests in the same pipeline.',
     'Document a rollback path that restores the previous S3 prefix and invalidates the edge cache.',
   ],
+}
+
+function goHomeProjects(event) {
+  event.preventDefault()
+  window.location.hash = ''
+  window.location.href = `${window.location.pathname}${window.location.search}#projects`
 }
 
 export default function CaseStudyPage({ project }) {
@@ -67,7 +73,7 @@ export default function CaseStudyPage({ project }) {
                 >
                   View repository <ArrowIcon />
                 </a>
-                <a className="button button--secondary" href="#/#projects">
+                <a className="button button--secondary" href="#projects" onClick={goHomeProjects}>
                   Back to portfolio
                 </a>
               </div>
