@@ -5,12 +5,9 @@ import {
   professionalSummary,
   skillGroups,
 } from '../data/portfolio'
+import { caseStudyHref } from '../lib/routing'
 import { ArchitectureDiagram } from './ArchitectureDiagram'
 import { ArrowIcon, TechnologyList } from './Common'
-
-function caseStudyHref(slug) {
-  return `?case=${encodeURIComponent(slug)}`
-}
 
 function Reveal({ as: Tag = 'div', children, className = '', delay = 0, ...props }) {
   const elementRef = useRef(null)
@@ -140,6 +137,9 @@ export function Hero() {
           className="clean-hero__image"
           src="https://avatars.githubusercontent.com/u/263141357?v=4"
           alt=""
+          width={800}
+          height={800}
+          decoding="async"
           fetchPriority="high"
         />
         <div className="clean-hero__veil" />
@@ -150,7 +150,7 @@ export function Hero() {
       <div className="container clean-hero__inner">
         <div className="clean-hero__copy">
           <p className="clean-kicker clean-kicker--light hero-entrance hero-entrance--one">
-            Simeon on the Cloud · Nigeria
+            Simeon on the Cloud · Nigeria · WAT (UTC+1)
           </p>
           <h1 className="clean-hero__name hero-entrance hero-entrance--two">Simeon Siaka</h1>
           <p className="clean-hero__role hero-entrance hero-entrance--three">
@@ -193,7 +193,7 @@ export function Hero() {
 
           <p className="clean-hero__availability hero-entrance hero-entrance--seven">
             <span aria-hidden="true" />
-            Open to cloud, DevOps, and cloud support opportunities
+            Open to remote cloud, DevOps, and cloud support opportunities
           </p>
         </div>
       </div>
@@ -392,9 +392,8 @@ export function Contact() {
         <p className="clean-kicker clean-kicker--light">Contact</p>
         <h2>Cloud Infrastructure &amp; DevOps Opportunities</h2>
         <p>
-          I am open to cloud infrastructure, DevOps, and cloud support roles where I can
-          contribute, learn from experienced engineers, and keep building production-minded
-          systems.
+          Open to remote cloud infrastructure, DevOps, and cloud support roles. Based in Nigeria
+          (WAT, UTC+1)—happy to discuss architecture, automation, and production systems.
         </p>
         <div className="clean-contact__actions">
           <a className="clean-button clean-button--light" href="mailto:simeonvault@gmail.com">
@@ -411,6 +410,9 @@ export function Contact() {
             GitHub
           </a>
         </div>
+        <p className="clean-contact__note">
+          Prefer email for role discussions · Typical response within 1–2 business days
+        </p>
       </Reveal>
     </section>
   )

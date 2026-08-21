@@ -637,7 +637,7 @@
   line-height: 0.95;
 }
 
-.clean-contact__inner > p:not(.clean-kicker) {
+.clean-contact__inner > p:not(.clean-kicker):not(.clean-contact__note) {
   max-width: 720px;
   margin: 28px 0 0;
   color: rgba(255, 255, 255, 0.78);
@@ -654,6 +654,15 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.48);
   font-size: 0.78rem;
   font-weight: 800;
+}
+
+.clean-contact__note {
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
 .portfolio-home .site-footer {

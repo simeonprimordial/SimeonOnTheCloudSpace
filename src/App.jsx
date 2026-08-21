@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   About,
   Contact,
@@ -10,6 +11,7 @@ import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { registerCloudDeskPortfolio } from './data/clouddesk'
 import { caseStudies } from './data/portfolio'
 import { useDaypartTheme } from './hooks/useDaypartTheme'
+import { getRoute } from './lib/routing'
 import CaseStudyPage from './pages/CaseStudyPage'
 import ProjectsPage from './pages/ProjectsPage'
 
@@ -42,16 +44,30 @@ function HomePage() {
 }
 
 function App() {
-  const searchParams = new URLSearchParams(window.location.search)
-  const slug = searchParams.get('case')
-  const page = searchParams.get('page')
-  const project = caseStudies.find((item) => item.slug === slug)
+  const [route, setRoute] = useState(() => getRoute())
 
-  if (project) {
-    return <CaseStudyPage project={project} />
+  useEffect(() => {
+    const onChange = () => setRoute(getRoute())
+    window.addEventListener('hashchange', onChange)
+    window.addEventListener('popstate', onChange)
+    return () => {
+      window.removeEventListener('hashchange', onChange)
+      window.removeEventListener('popstate', onChange)
+    }
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [route.type, route.slug])
+
+  if (route.type === 'case') {
+    const project = caseStudies.find((item) => item.slug === route.slug)
+    if (project) {
+      return <CaseStudyPage project={project} />
+    }
   }
 
-  if (page === 'projects') {
+  if (route.type === 'projects') {
     return <ProjectsPage />
   }
 

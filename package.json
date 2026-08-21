@@ -1,8 +1,16 @@
 {
-  "name": "portfolio",
+  "name": "simeon-on-the-cloud-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
+  "description": "Cloud infrastructure and DevOps engineering portfolio — AWS, Terraform, secure CI/CD, and production-oriented case studies.",
+  "author": "Simeon Siaka",
+  "license": "MIT",
+  "homepage": "https://simeonprimordial.github.io/SimeonOnTheCloudSpace/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simeonprimordial/SimeonOnTheCloudSpace.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
