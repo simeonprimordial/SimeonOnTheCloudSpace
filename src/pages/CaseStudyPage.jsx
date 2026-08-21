@@ -1,6 +1,8 @@
 import { ArchitectureDiagram } from '../components/ArchitectureDiagram'
 import { ArrowIcon, MetricGrid, TechnologyList } from '../components/Common'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
+import { caseStudyHref } from '../lib/routing'
+import { caseStudies } from '../data/portfolio'
 
 function DetailList({ title, items }) {
   return (
@@ -15,7 +17,31 @@ function DetailList({ title, items }) {
   )
 }
 
+const nextStepsBySlug = {
+  logihaul: [
+    'Prototype the order-intake path with synthetic 50× load and publish capacity evidence.',
+    'Add chaos testing for AZ failure and validate recovery runbooks against the documented design.',
+    'Cost-model DynamoDB on-demand vs provisioned for promotional windows.',
+  ],
+  fintrust: [
+    'Add blue/green or canary deploys behind the ALB for safer application releases.',
+    'Wire application metrics and RDS performance insights into a single operations dashboard.',
+    'Extend CI to plan Terraform against a non-production workspace on every pull request.',
+  ],
+  novatech: [
+    'Add preview deployments per pull request with a dedicated CloudFront behavior or path.',
+    'Automate security scanning of static assets and dependency manifests in the same pipeline.',
+    'Document a rollback path that restores the previous S3 prefix and invalidates the edge cache.',
+  ],
+}
+
 export default function CaseStudyPage({ project }) {
+  const nextSteps = nextStepsBySlug[project.slug] || [
+    'Capture additional runtime evidence and cost snapshots for the next design review.',
+  ]
+
+  const related = caseStudies.filter((item) => item.slug !== project.slug).slice(0, 2)
+
   return (
     <div className="site-shell case-study-shell">
       <a className="skip-link" href="#main-content">
@@ -41,7 +67,7 @@ export default function CaseStudyPage({ project }) {
                 >
                   View repository <ArrowIcon />
                 </a>
-                <a className="button button--secondary" href="./#highlights">
+                <a className="button button--secondary" href="#/#projects">
                   Back to portfolio
                 </a>
               </div>
@@ -145,6 +171,20 @@ export default function CaseStudyPage({ project }) {
           </div>
         </section>
 
+        <section className="section case-study-lessons">
+          <div className="container case-study-lessons__grid">
+            <div>
+              <span>What I would do next</span>
+              <h2>Next Engineering Steps</h2>
+            </div>
+            <ol>
+              {nextSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         <section className="section case-study-stack">
           <div className="container case-study-stack__grid">
             <div>
@@ -166,6 +206,29 @@ export default function CaseStudyPage({ project }) {
             </aside>
           </div>
         </section>
+
+        {related.length > 0 && (
+          <section className="section case-study-overview">
+            <div className="container">
+              <div className="case-study-section-heading">
+                <span>Continue exploring</span>
+                <h2>Related Case Studies</h2>
+              </div>
+              <div className="decision-grid">
+                {related.map((item) => (
+                  <article className="decision-card" key={item.slug}>
+                    <span>{item.number}</span>
+                    <h3>{item.name}</h3>
+                    <p>{item.summary}</p>
+                    <a className="text-link" href={caseStudyHref(item.slug)}>
+                      Read case study <ArrowIcon />
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <SiteFooter />

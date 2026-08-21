@@ -10,7 +10,7 @@ const navigation = [
 
 export function SiteHeader({ caseStudy = false }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const homeHref = caseStudy ? './' : '#top'
+  const homeHref = caseStudy ? '#/' : '#top'
   const closeMenu = () => setMenuOpen(false)
 
   return (
@@ -35,7 +35,7 @@ export function SiteHeader({ caseStudy = false }) {
         )}
 
         {caseStudy && (
-          <a className="nav__back" href="./#projects">
+          <a className="nav__back" href="#/#projects">
             Back to portfolio
           </a>
         )}
@@ -92,7 +92,10 @@ export function SiteFooter() {
           <strong>Simeon Siaka</strong>
           <span>Cloud Infrastructure &amp; DevOps Engineering</span>
         </div>
-        <p>© {currentYear} Simeon on the Cloud</p>
+        <p>
+          © {currentYear} Simeon on the Cloud · Built with React, Vite &amp; Tailwind · Deployed via
+          GitHub Actions
+        </p>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
