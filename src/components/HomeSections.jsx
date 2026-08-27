@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import {
   archiveProjects,
   caseStudies,
+  journey,
+  learning,
   professionalSummary,
   skillGroups,
 } from '../data/portfolio'
-import { caseStudyHref } from '../lib/routing'
+import { caseStudyHref, navigate } from '../lib/routing'
 import { ArchitectureDiagram } from './ArchitectureDiagram'
 import { ArrowIcon, TechnologyList } from './Common'
 
@@ -130,17 +132,22 @@ export function ScrollProgress() {
 }
 
 export function Hero() {
+  const localPortrait = `${import.meta.env.BASE_URL}images/profile.jpg`
+
   return (
     <section className="clean-hero" id="top">
       <div className="clean-hero__media" aria-hidden="true">
         <img
           className="clean-hero__image"
-          src="https://avatars.githubusercontent.com/u/263141357?v=4"
+          src={localPortrait}
           alt=""
           width={800}
           height={800}
           decoding="async"
           fetchPriority="high"
+          onError={(event) => {
+            event.currentTarget.src = 'https://avatars.githubusercontent.com/u/263141357?v=4'
+          }}
         />
         <div className="clean-hero__veil" />
         <div className="clean-hero__glow clean-hero__glow--one" />
@@ -201,6 +208,21 @@ export function Hero() {
   )
 }
 
+function CaseStudyLink({ href, className, children }) {
+  return (
+    <a
+      className={className}
+      href={href}
+      onClick={(event) => {
+        event.preventDefault()
+        navigate(href)
+      }}
+    >
+      {children}
+    </a>
+  )
+}
+
 export function ProjectHighlights() {
   const [featuredProject, ...selectedProjects] = caseStudies
 
@@ -245,9 +267,9 @@ export function ProjectHighlights() {
             <TechnologyList items={featuredProject.technologies.slice(0, 7)} />
 
             <div className="clean-actions">
-              <a className="clean-text-link" href={caseStudyHref(featuredProject.slug)}>
+              <CaseStudyLink className="clean-text-link" href={caseStudyHref(featuredProject.slug)}>
                 Read case study <ArrowIcon />
-              </a>
+              </CaseStudyLink>
               <a
                 className="clean-text-link clean-text-link--muted"
                 href={featuredProject.repositoryUrl}
@@ -276,9 +298,9 @@ export function ProjectHighlights() {
               <p>{project.summary}</p>
               <TechnologyList items={project.technologies.slice(0, 5)} />
               <div className="selected-project__footer">
-                <a className="clean-text-link" href={caseStudyHref(project.slug)}>
+                <CaseStudyLink className="clean-text-link" href={caseStudyHref(project.slug)}>
                   Read case study <ArrowIcon />
-                </a>
+                </CaseStudyLink>
                 <a
                   aria-label={`Open ${project.name} repository`}
                   className="selected-project__repo"
@@ -328,6 +350,86 @@ export function About() {
               <DynamicSkillList items={group.skills} startIndex={index * 2} />
             </Reveal>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function Journey() {
+  return (
+    <section className="clean-section clean-section--soft" id="journey">
+      <div className="container clean-journey">
+        <Reveal className="clean-journey__intro">
+          <p className="clean-kicker">Career arc</p>
+          <h2 className="clean-title">Engineering Journey</h2>
+          <p className="clean-lead">
+            From AWS foundations and Linux administration to infrastructure as code, containers,
+            and secure delivery automation—building toward multi-tenant platform work.
+          </p>
+        </Reveal>
+
+        <ol className="clean-timeline">
+          {journey.map((stage, index) => (
+            <Reveal as="li" className="clean-timeline__item" delay={80 + index * 90} key={stage.label}>
+              <div className="clean-timeline__marker" aria-hidden="true" />
+              <div className="clean-timeline__meta">
+                <span>{stage.label}</span>
+                <strong>{stage.period}</strong>
+              </div>
+              <div className="clean-timeline__body">
+                <h3>{stage.title}</h3>
+                <p>{stage.text}</p>
+                <TechnologyList items={stage.technologies} />
+              </div>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
+export function Learning() {
+  return (
+    <section className="clean-section" id="learning">
+      <div className="container">
+        <Reveal className="clean-section__heading">
+          <div>
+            <p className="clean-kicker">Background</p>
+            <h2 className="clean-title clean-title--small">Education &amp; structured practice</h2>
+          </div>
+          <p className="clean-lead">
+            Quantitative training, certification prep, and an evolving hands-on AWS project roadmap.
+          </p>
+        </Reveal>
+
+        <div className="clean-learning-grid">
+          {learning.map((item, index) => {
+            const Tag = item.url ? 'a' : 'article'
+            const linkProps = item.url
+              ? { href: item.url, target: '_blank', rel: 'noopener noreferrer' }
+              : {}
+
+            return (
+              <Reveal
+                as={Tag}
+                className="clean-learning-card"
+                delay={90 + index * 80}
+                key={item.title}
+                {...linkProps}
+              >
+                <span>{item.kicker}</span>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+                {item.url && (
+                  <span className="clean-learning-card__link">
+                    Open roadmap <ArrowIcon />
+                  </span>
+                )}
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

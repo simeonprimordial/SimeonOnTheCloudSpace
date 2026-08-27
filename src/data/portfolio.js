@@ -1,10 +1,10 @@
 export const siteUrl = 'https://simeonprimordial.github.io/SimeonOnTheCloudSpace/'
 
 export const navigation = [
+  { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
-  { href: '#highlights', label: 'Highlights' },
   { href: '#journey', label: 'Journey' },
-  { href: '#archive', label: 'Projects' },
+  { href: '#more-work', label: 'Archive' },
   { href: '#contact', label: 'Contact' },
 ]
 
