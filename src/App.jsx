@@ -11,6 +11,7 @@ import {
 import { ProjectArchive } from './components/ProjectArchive'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { registerCloudDeskPortfolio } from './data/clouddesk'
+import { withEvidenceImages } from './data/evidenceImages'
 import { caseStudies } from './data/portfolio'
 import { useDaypartTheme } from './hooks/useDaypartTheme'
 import { getRoute } from './lib/routing'
@@ -67,7 +68,7 @@ function App() {
   if (route.type === 'case') {
     const project = caseStudies.find((item) => item.slug === route.slug)
     if (project) {
-      return <CaseStudyPage project={project} />
+      return <CaseStudyPage project={withEvidenceImages(project)} />
     }
   }
 
