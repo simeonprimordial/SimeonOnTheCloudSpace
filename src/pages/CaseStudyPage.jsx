@@ -2,7 +2,7 @@ import { ArchitectureDiagram } from '../components/ArchitectureDiagram'
 import { ArrowIcon, MetricGrid, TechnologyList } from '../components/Common'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { caseStudies } from '../data/portfolio'
-import { caseStudyHref } from '../lib/routing'
+import { caseStudyHref, homeHref, navigate } from '../lib/routing'
 
 function DetailList({ title, items }) {
   return (
@@ -37,8 +37,7 @@ const nextStepsBySlug = {
 
 function goHomeProjects(event) {
   event.preventDefault()
-  window.location.hash = ''
-  window.location.href = `${window.location.pathname}${window.location.search}#projects`
+  navigate(`${homeHref()}#projects`)
 }
 
 export default function CaseStudyPage({ project }) {
@@ -73,7 +72,7 @@ export default function CaseStudyPage({ project }) {
                 >
                   View repository <ArrowIcon />
                 </a>
-                <a className="button button--secondary" href="#projects" onClick={goHomeProjects}>
+                <a className="button button--secondary" href={`${homeHref()}#projects`} onClick={goHomeProjects}>
                   Back to portfolio
                 </a>
               </div>
@@ -139,18 +138,37 @@ export default function CaseStudyPage({ project }) {
                       <span />
                       <span />
                       <span />
-                      <strong>evidence-{String(index + 1).padStart(2, '0')}.log</strong>
+                      <strong>evidence-{String(index + 1).padStart(2, '0')}</strong>
                     </div>
-                    <div className="evidence-card__body">
-                      <small>{item.label}</small>
-                      <strong>{item.title}</strong>
-                      <p>{item.text}</p>
-                      <div className="evidence-card__status">✓ documented and verified</div>
-                    </div>
+                    {item.image ? (
+                      <figure className="evidence-card__figure">
+                        <img
+                          src={item.image}
+                          alt={item.imageAlt || item.title}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <figcaption>
+                          <small>{item.label}</small>
+                          <strong>{item.title}</strong>
+                          <p>{item.text}</p>
+                        </figcaption>
+                      </figure>
+                    ) : (
+                      <div className="evidence-card__body">
+                        <small>{item.label}</small>
+                        <strong>{item.title}</strong>
+                        <p>{item.text}</p>
+                        <div className="evidence-card__status">✓ documented and verified</div>
+                      </div>
+                    )}
                   </div>
                 </article>
               ))}
             </div>
+            <p className="evidence-source-note">
+              Screenshots and diagrams are sourced from the project repository evidence folders.
+            </p>
           </div>
         </section>
 
@@ -226,7 +244,14 @@ export default function CaseStudyPage({ project }) {
                     <span>{item.number}</span>
                     <h3>{item.name}</h3>
                     <p>{item.summary}</p>
-                    <a className="text-link" href={caseStudyHref(item.slug)}>
+                    <a
+                      className="text-link"
+                      href={caseStudyHref(item.slug)}
+                      onClick={(event) => {
+                        event.preventDefault()
+                        navigate(caseStudyHref(item.slug))
+                      }}
+                    >
                       Read case study <ArrowIcon />
                     </a>
                   </article>

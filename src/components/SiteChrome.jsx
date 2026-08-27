@@ -1,40 +1,35 @@
 import { useState } from 'react'
 import { MenuIcon } from './Common'
+import { homeHref, navigate } from '../lib/routing'
 
 const navigation = [
   { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
-  { href: '#more-work', label: 'Project Archive' },
+  { href: '#journey', label: 'Journey' },
+  { href: '#more-work', label: 'Archive' },
   { href: '#contact', label: 'Contact' },
 ]
 
 export function SiteHeader({ caseStudy = false }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const homeHref = caseStudy ? './' : '#top'
   const closeMenu = () => setMenuOpen(false)
+
+  const goHome = (event) => {
+    event.preventDefault()
+    closeMenu()
+    navigate(homeHref())
+  }
 
   const goHomeProjects = (event) => {
     event.preventDefault()
     closeMenu()
-    window.location.hash = ''
-    window.location.href = `${window.location.pathname}${window.location.search}#projects`
+    navigate(`${homeHref()}#projects`)
   }
 
   return (
     <header className="site-header">
       <nav className="nav container" aria-label="Primary navigation">
-        <a
-          className="brand"
-          href={homeHref}
-          onClick={(event) => {
-            if (caseStudy) {
-              event.preventDefault()
-              window.location.hash = ''
-              window.location.href = `${window.location.pathname}${window.location.search}`
-            }
-            closeMenu()
-          }}
-        >
+        <a className="brand" href={homeHref()} onClick={goHome}>
           <span className="brand__monogram">S</span>
           <span className="brand__copy">
             <strong>Simeon Siaka</strong>
@@ -53,7 +48,7 @@ export function SiteHeader({ caseStudy = false }) {
         )}
 
         {caseStudy && (
-          <a className="nav__back" href="#projects" onClick={goHomeProjects}>
+          <a className="nav__back" href={`${homeHref()}#projects`} onClick={goHomeProjects}>
             Back to portfolio
           </a>
         )}
