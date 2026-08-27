@@ -3,6 +3,8 @@ import {
   About,
   Contact,
   Hero,
+  Journey,
+  Learning,
   ProjectHighlights,
   ScrollProgress,
 } from './components/HomeSections'
@@ -35,6 +37,8 @@ function HomePage() {
         <Hero />
         <ProjectHighlights />
         <About />
+        <Journey />
+        <Learning />
         <ProjectArchive />
         <Contact />
       </main>
