@@ -8,6 +8,7 @@ import {
   ProjectHighlights,
   ScrollProgress,
 } from './components/HomeSections'
+import { Certificates } from './components/Certificates'
 import { ProjectArchive } from './components/ProjectArchive'
 import { SiteFooter, SiteHeader } from './components/SiteChrome'
 import { registerCloudDeskPortfolio } from './data/clouddesk'
@@ -39,6 +40,7 @@ function HomePage() {
         <ProjectHighlights />
         <About />
         <Journey />
+        <Certificates />
         <Learning />
         <ProjectArchive />
         <Contact />
