@@ -18,6 +18,19 @@ Additional work: multi-tenant SaaS foundations, highly available web tiers, cont
 
 ---
 
+## Certifications & professional certificates
+
+- **Microsoft Certified: Azure Fundamentals (AZ-900)**
+- **AWS Cloud Solutions Architect Professional Certificate** — Coursera
+- **AWS Cloud Support Associate Professional Certificate** — Coursera
+- **Microsoft Cloud Support Associate Professional Certificate** — Coursera
+- **IBM Applied DevOps Engineering Professional Certificate** — Coursera
+- **DevOps and Software Engineering Professional Certificate** — Coursera
+
+The live portfolio includes links to the corresponding Coursera certificate programs.
+
+---
+
 ## Stack
 
 - **UI:** React 19, Vite 8, Tailwind CSS v4
