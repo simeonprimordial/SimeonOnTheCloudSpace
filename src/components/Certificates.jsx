@@ -2,31 +2,32 @@ const certificates = [
   {
     provider: 'Amazon Web Services · Coursera',
     title: 'AWS Cloud Solutions Architect Professional Certificate',
-    url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/aws-cloud-solutions-architect?collectionId=77egH',
+    // url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/aws-cloud-solutions-architect?collectionId=77egH',
   },
   {
     provider: 'Amazon Web Services · Coursera',
     title: 'AWS Cloud Support Associate Professional Certificate',
-    url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/aws-cloud-support-associate?collectionId=77egH',
+    // url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/aws-cloud-support-associate?collectionId=77egH',
   },
   {
     provider: 'Microsoft · Coursera',
     title: 'Microsoft Cloud Support Associate Professional Certificate',
-    url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/microsoft-cloud-support-associate?collectionId=77egH',
+    // url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/microsoft-cloud-support-associate?collectionId=77egH',
   },
   {
     provider: 'IBM · Coursera',
     title: 'IBM Applied DevOps Engineering Professional Certificate',
-    url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/ibm-applied-devops-engineering?collectionId=77egH',
+    // url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/ibm-applied-devops-engineering?collectionId=77egH',
   },
   {
     provider: 'Coursera',
     title: 'DevOps and Software Engineering Professional Certificate',
-    url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/devops-and-software-engineering?collectionId=77egH',
+    // url: 'https://www.coursera.org/programs/devcareer-learning-for-impact-devops-cloud-engineering-l9noi/professional-certificates/devops-and-software-engineering?collectionId=77egH',
   },
   {
     provider: 'Microsoft',
     title: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
+    url:'https://learn.microsoft.com/api/credentials/share/en-us/simeonsiaka-3989/1730903EA8456D7?sharingId=260905CFA4591FAD'
   },
 ]
 
