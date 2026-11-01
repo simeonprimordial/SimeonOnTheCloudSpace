@@ -172,13 +172,6 @@ export function Hero() {
             <a className="clean-button clean-button--primary" href="#projects">
               View projects <ArrowIcon />
             </a>
-            <a
-              className="clean-button clean-button--ghost"
-              href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
-              download
-            >
-              Download CV
-            </a>
           </div>
 
           <div
@@ -513,7 +506,7 @@ export function Contact() {
           </a>
         </div>
         <p className="clean-contact__note">
-          Prefer email for role discussions · Typical response within 1–2 business days
+          Prefer email for role discussions · Typical response within 2–3 hours
         </p>
       </Reveal>
     </section>
