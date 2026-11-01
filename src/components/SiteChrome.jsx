@@ -53,14 +53,6 @@ export function SiteHeader({ caseStudy = false }) {
           </a>
         )}
 
-        <a
-          className="nav__resume"
-          href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
-          download
-        >
-          Download CV
-        </a>
-
         {!caseStudy && (
           <button
             className="nav__menu-button"
@@ -82,13 +74,6 @@ export function SiteHeader({ caseStudy = false }) {
               {item.label}
             </a>
           ))}
-          <a
-            href={`${import.meta.env.BASE_URL}Simeon-Siaka-CV.pdf`}
-            download
-            onClick={closeMenu}
-          >
-            Download CV
-          </a>
         </div>
       )}
     </header>
