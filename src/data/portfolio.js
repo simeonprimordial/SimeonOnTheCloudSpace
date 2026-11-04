@@ -354,12 +354,6 @@ export const learning = [
       'A quantitative foundation in analysis, structured problem solving, and technical reasoning.',
   },
   {
-    kicker: 'Current preparation',
-    title: 'Preparing for AWS Certified Solutions Architect - Associate',
-    detail:
-      'Developing architecture judgment across resilience, security, performance, and cost optimization.',
-  },
-  {
     kicker: 'Structured practice',
     title: 'AWS 80 Projects Challenge',
     detail:
